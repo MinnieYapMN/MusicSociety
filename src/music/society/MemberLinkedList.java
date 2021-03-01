@@ -14,7 +14,11 @@ import java.util.List;
  */
 public class MemberLinkedList<T> implements MemberListInterface<T> {
     
-   //List<T> = new ArrayList<>();
+    List<Member> memberList;
+    
+    public MemberLinkedList(){
+        memberList = new ArrayList<>();
+    }
     
     public void add(T newMember){
         
