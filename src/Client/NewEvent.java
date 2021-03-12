@@ -117,7 +117,7 @@ public class NewEvent {
            Event event = new Event(no,title,date,time,loc,desc,fee);
          eventList.push(event);
          
-         System.out.println(event);
+         System.out.println(eventList);
        
             System.out.println("Do you want add new details again?[Y|N]");
              select = Character.toUpperCase(slc.next().charAt(0));
