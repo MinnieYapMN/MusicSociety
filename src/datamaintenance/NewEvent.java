@@ -5,23 +5,81 @@
  */
 package datamaintenance;
 import java.util.Scanner;
-import java.util.Date;
+import datamaintenance.EventLinkedStackInterface;
 
 /**
  *
  * @author Ren
  */
 public class NewEvent {
-  
-    public static void main(String []args){
+
+
+
+    
+  public static void main(String []args){
             
+     
+//    private linkedStackInterface<Category> cat2 = new linkedStackSort();
+           
+       
+//        int select;
+        int menu = -1;
+        Scanner sNo = new Scanner(System.in);
         
-        int no;
+       do{
+        System.out.println("====================================");
+        System.out.println("=======Event List Details============");
+        System.out.println("1. .  Add new Event details  .");
+        System.out.println("2. .  Remove Event List      .");
+        System.out.println("3. .  Display All Event List .");
+        System.out.println(".....................................");
+        
+        menu = sNo.nextInt();
+         switch(menu){
+                case 1:
+                    addNew();
+                    break;
+                case 2:
+                    Remove();
+                    break;
+                case 3:
+                    display();
+                default:
+                    System.out.println("Invalid selection");
+            }
+//        try{
+//            switch(menu){
+//                case 1:
+//                    addNew();
+//                    break;
+//                case 2:
+//                    Remove();
+//                    break;
+//                case 3:
+//                    display();
+//                default:
+//                    System.out.println("Invalid selection");
+//            }
+//        }catch (Exception e){
+////                 System.out.print("Press any button...");
+////                sNo.nextInt();
+//                }
+        }while (menu !=4 || menu !=0);
+        
+        
+        
+        
+      
+    }
+    public static void addNew(){
+        EventLinkedStackInterface <Event> eventList = new EventLinkedStack();
+         int no;
         String title,time,loc,desc,date;
         double fee;
+        char select;
         
-        
-        Scanner eNo= new Scanner(System.in);
+        Scanner slc= new Scanner(System.in);
+          Scanner eNo= new Scanner(System.in);
         Scanner getTitle = new Scanner(System.in);
         Scanner getTime = new Scanner(System.in);
         Scanner getLoc = new Scanner(System.in);
@@ -29,13 +87,17 @@ public class NewEvent {
         Scanner getDate = new Scanner(System.in);
         Scanner getFee = new Scanner(System.in);
         
+      
+    
+        do{
+            
         
         System.out.println("===== Add New Event =====");
         System.out.println("1. Event NO ");
         no = eNo.nextInt();
         System.out.println("2. Event Title ");
         title = getTitle.nextLine();
-     
+//     
         System.out.println("3. Event Date ");
         date = getDate.nextLine();
         
@@ -47,8 +109,46 @@ public class NewEvent {
          desc = getDesc.nextLine();
         System.out.println("7. Fees ");
          fee= getFee.nextDouble();
-          
-    }
+           Event event = new Event(no,title,date,time,loc,desc,fee);
+         eventList.push(event);
+         
+            System.out.println("Do you want add new details again?[Y|N]");
+             select = Character.toUpperCase(slc.next().charAt(0));
+        
+            
+         }while(select =='Y');
+        }
+   
+      
+//          System.out.println("Do you want add new details again?[Y|N]");
+//             select = Character.toUpperCase(slc.next().charAt(0));
+//             if (select !='Y' || select !='N'){
+//                System.out.println("Invalid Input, Please enter [Y|N]");
+//             }
+     
+        
+         
+              
+         
+         
+         
+//         System.out.println(event);
+//         eventList.display();
+         
+        
+//         
+//          EventLinkedStackInterface <Event> eventList = new EventLinkedStack();
+         
+     
     
+    
+    public static void Remove(){
+        addNew();
+    }
+
+  public static void display(){
+        addNew();
+    }
+
     
 }

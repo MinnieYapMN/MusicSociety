@@ -5,6 +5,8 @@
  */
 package datamaintenance;
 
+import java.util.*;
+
 
 /**
  *
@@ -86,9 +88,65 @@ public class Event {
     public void setFees(double fees) {
         this.fees = fees;
     }
+
+    @Override
+    public String toString() {
+//        return "Event{" + "eventNo=" + eventNo + ", title=" + title + ", date=" + date + ", time=" + time + ", location=" + location + ", description=" + description + ", fees=" + fees + '}';
+     return String.format("%-4s %-4s %-4s %-2s %-8s %-8s ",eventNo,title,date,time,location,description,fees);
+                
+    }
     
     
-  
+//  public static void main(String []args){
+//            
+//     EventLinkedStackInterface <Event> eventList = new EventLinkedStack();
+////    private linkedStackInterface<Category> cat2 = new linkedStackSort();
+//           
+//        int no;
+//        String title,time,loc,desc,date;
+//        double fee;
+//        
+//        
+//     
+//        
+//        Scanner eNo= new Scanner(System.in);
+//        Scanner getTitle = new Scanner(System.in);
+//        Scanner getTime = new Scanner(System.in);
+//        Scanner getLoc = new Scanner(System.in);
+//        Scanner getDesc = new Scanner(System.in);
+//        Scanner getDate = new Scanner(System.in);
+//        Scanner getFee = new Scanner(System.in);
+//        
+//        
+//        System.out.println("===== Add New Event =====");
+//        System.out.println("1. Event NO ");
+//        no = eNo.nextInt();
+//        System.out.println("2. Event Title ");
+//        title = getTitle.nextLine();
+////     
+//        System.out.println("3. Event Date ");
+//        date = getDate.nextLine();
+//        
+//        System.out.println("4. Event Time ");
+//        time = getTime.next();
+//        System.out.println("5. Location ");
+//         loc = getLoc.nextLine();
+//        System.out.println("6. Event Description ");
+//         desc = getDesc.nextLine();
+//        System.out.println("7. Fees ");
+//         fee= getFee.nextDouble();
+//         
+//         Event event = new Event(no,title,date,time,loc,desc,fee);
+//         eventList.push(event);
+//         
+////          EventLinkedStackInterface <Event> eventList = new EventLinkedStack();
+//         
+//     
+//    }
+
+
+    
+ 
     
     
     

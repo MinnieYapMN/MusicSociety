@@ -9,22 +9,6 @@ package datamaintenance;
  *
  * @author Ren
  */
-public interface EventListInterface<Event> {
-
-    public void push (Event newEntry);
-
-public void updateEvent();
-
-public void updateMember();
-
-public void pop();
-
-public boolean isEmpty();
-public void clear();
-
-public void sortEvent();
-
-
-    
+class pop {
     
 }
