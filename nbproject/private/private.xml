@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/datamaintenance/EventLinkedStack.java</file>
-            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/datamaintenance/EventLinkedStackInterface.java</file>
-            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/datamaintenance/Event.java</file>
-            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/datamaintenance/NewEvent.java</file>
+            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/ADT/EventLinkedStackInterface.java</file>
+            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/ADT/EventLinkedStack.java</file>
+            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/Client/NewEvent.java</file>
+            <file>file:/C:/Users/Ren/OneDrive/Documents/NetBeansProjects/MusicSociety/src/Entity/Event.java</file>
         </group>
     </open-files>
 </project-private>
