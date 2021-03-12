@@ -116,7 +116,7 @@ public class NewEvent {
          fee= getFee.nextDouble();
            Event event = new Event(no,title,date,time,loc,desc,fee);
          eventList.push(event);
-         
+         //new list 
          System.out.println(eventList);
        
             System.out.println("Do you want add new details again?[Y|N]");
