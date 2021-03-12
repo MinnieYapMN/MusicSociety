@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datamaintenance;
+package Client;
+import ADT.EventLinkedStack;
 import java.util.Scanner;
-import datamaintenance.EventLinkedStackInterface;
+import ADT.EventLinkedStackInterface;
+import Entity.Event;
+import static java.lang.System.exit;
 
 /**
  *
@@ -44,6 +47,8 @@ public class NewEvent {
                     break;
                 case 3:
                     display();
+                case 4:
+                    exit(0);
                 default:
                     System.out.println("Invalid selection");
             }
@@ -72,7 +77,7 @@ public class NewEvent {
       
     }
     public static void addNew(){
-        EventLinkedStackInterface <Event> eventList = new EventLinkedStack();
+        EventLinkedStackInterface <Event> eventList = new EventLinkedStack<Event>();
          int no;
         String title,time,loc,desc,date;
         double fee;
@@ -112,6 +117,8 @@ public class NewEvent {
            Event event = new Event(no,title,date,time,loc,desc,fee);
          eventList.push(event);
          
+         System.out.println(event);
+       
             System.out.println("Do you want add new details again?[Y|N]");
              select = Character.toUpperCase(slc.next().charAt(0));
         
