@@ -7,7 +7,7 @@ package Client;
 import ADT.EventLinkedStack;
 import java.util.Scanner;
 import ADT.EventLinkedStackInterface;
-import Entity.Event;
+import Entity.EventDetails;
 import static java.lang.System.exit;
 
 /**
@@ -77,7 +77,7 @@ public class NewEvent {
       
     }
     public static void addNew(){
-        EventLinkedStackInterface <Event> eventList = new EventLinkedStack<Event>();
+        EventLinkedStackInterface <EventDetails> eventList = new EventLinkedStack<EventDetails>();
          int no;
         String title,time,loc,desc,date;
         double fee;
@@ -114,7 +114,7 @@ public class NewEvent {
          desc = getDesc.nextLine();
         System.out.println("7. Fees ");
          fee= getFee.nextDouble();
-           Event event = new Event(no,title,date,time,loc,desc,fee);
+           EventDetails event = new EventDetails(no,title,date,time,loc,desc,fee);
          eventList.push(event);
          //new list 
          System.out.println(eventList);

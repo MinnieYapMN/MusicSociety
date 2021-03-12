@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author Ren
  */
-public class Event {
+public class EventDetails {
     private int eventNo;
     private String title;
     private String date;
@@ -21,7 +21,7 @@ public class Event {
     private String description;
     private double fees;
 
-    public Event(int eventNo, String title, String date, String time, String location, String description, double fees) {
+    public EventDetails(int eventNo, String title, String date, String time, String location, String description, double fees) {
         this.eventNo = eventNo;
         this.title = title;
         this.date = date;
