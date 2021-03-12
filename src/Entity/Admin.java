@@ -5,32 +5,29 @@
  */
 package Entity;
 
-
 /**
  *
  * @author Ming Nee
  */
-public class Member {
-    //private String username;
-   // private String password;
-    private String studentID;
-    private String name;
+public class Admin {
+    private String username;
+    private String password;
+    private String adminID;
     private String contactNo;
     private String email;
     private String birthdate;
-  
 
-    public Member(/*String username, String password,*/ String studentID, String name, String contactNo, String email, String birthdate) {
-       // this.username = username;
-        //this.password = password;
-        this.studentID = studentID;
-        this.name = name;
+    public Admin(String username, String password, String adminID, String contactNo, String email, String birthdate) {
+        this.username = username;
+        this.password = password;
+        this.adminID = adminID;
         this.contactNo = contactNo;
         this.email = email;
         this.birthdate = birthdate;
     }
 
-    /*public String getUsername() {
+
+    public String getUsername() {
         return username;
     }
 
@@ -44,22 +41,14 @@ public class Member {
 
     public void setPassword(String password) {
         this.password = password;
-    }*/
-
-    public String getStudentID() {
-        return studentID;
     }
 
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
+    public String getAdminID() {
+        return adminID;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setAdminID(String adminID) {
+        this.adminID = adminID;
     }
 
     public String getContactNo() {
@@ -88,7 +77,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Member{"+ "\nStudent ID =>" + studentID + "\nName => " + name + "\nContact No => " + contactNo + "\nEmail => " + email + "\nBirthdate => " + birthdate + '}';
+        return "Admin{" + "\nUsername => " + username + "\nPassword => " + password + "\nAdmin ID => " + adminID + "\nContact No => " + contactNo + "\nEmail => " + email + "\nBirthdate => " + birthdate + '}';
     }
-
+    
 }

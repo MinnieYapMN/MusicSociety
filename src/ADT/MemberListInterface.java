@@ -5,9 +5,11 @@
  */
 package ADT;
 
+import Entity.Admin;
+
 /**
  *
- * @author Jason
+ * 
  * @param <Member>
  */
 public interface MemberListInterface<Member> {
@@ -15,7 +17,9 @@ public interface MemberListInterface<Member> {
     public void add(Member newMember);
     public void remove(Member member);
     public boolean isEmpty();
-    public boolean login(String username,String password);
-    public Member forgotPassword(String email);
+    public String login(String username,String password);
+    public Admin forgotPassword(String email);
+    public Member get(int position);
+    public int getLength();
     
 }
