@@ -47,7 +47,7 @@ public class LinkList<T> implements LinkListInterface<T> {
                 firstNode = firstNode.next;
             } else {
                 Node nodeBefore = firstNode;
-                for (int i = 0; i < givenPosition; ++i) {
+                for (int i = 0; i < givenPosition - 1; ++i) {
                     nodeBefore = nodeBefore.next;
                 }
                 result = nodeBefore.next.data;
