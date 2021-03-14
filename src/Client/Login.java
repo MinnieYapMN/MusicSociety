@@ -163,7 +163,7 @@ public class Login {
         System.out.println("|         [3] Register new member      |");
         System.out.println("|         [4] Edit Member              |");
         System.out.println("|         [5] Delete Member            |");
-        System.out.println("| Press Any Number => Exit to Homepage |");
+        System.out.println("|         [0] Exit to Homepage         |");
         System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
         System.out.print("Enter your option => ");
         int option = scanner.nextInt();
@@ -192,7 +192,7 @@ public class Login {
             System.out.println("\n");
             System.out.println("---------------Member " + (i + 1) + "------------");
             System.out.println(memberList.get(i).toString());
-            
+
         }
         System.out.println("\n---------------End of List---------------");
         scanner.nextLine();
@@ -280,7 +280,7 @@ public class Login {
                 System.out.println("|     Please choose your selection ><  |");
                 System.out.println("|         [1] Email                    |");
                 System.out.println("|         [2] Contact No               |");
-                System.out.println("|Press Any Key => Exit to MEMBER PAGE  |");
+                System.out.println("|         [0] Exit to Maintainence Page|");
                 System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
                 System.out.print("Enter your option => ");
                 int option = scanner.nextInt();
