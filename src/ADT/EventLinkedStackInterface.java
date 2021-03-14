@@ -5,6 +5,8 @@
  */
 package ADT;
 
+import Entity.EventDetails;
+
 /**
  *
  * @author Ren
@@ -15,11 +17,14 @@ public void updateEvent();
 public T pop();
 public T peek();
 public void display();
+ public boolean search(int No);
 public boolean isEmpty();
 public void clear();
 public void sortEvent();
-
-
+ public int EventTotal();
+public T getEntry(int eStatus);
+public EventDetails get(int status);
+public int getDetails();
 
     
     

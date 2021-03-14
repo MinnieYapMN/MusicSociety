@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package ADT;
+import Entity.EventDetails;
 import java.util.*;
-import java.util.NoSuchElementException;
+//import java.util.NoSuchElementException;
 
 /**
  *
@@ -16,6 +17,7 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T>  {
     private int eList;
    private Node topNode;
 
+EventLinkedStackInterface <EventDetails> eventList ;
  
 
     //Inner class
@@ -46,9 +48,12 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T>  {
         newNode.next = topNode;
 
         topNode = newNode;
+        eList++;
+  
     }
 
 
+    @Override
     public void updateEvent() {
         
     }
@@ -60,11 +65,12 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T>  {
         if (topNode != null) {
             topNode = topNode.next;
         }
-
+    eList--;
         return top;
     }
 
     
+    @Override
     public T peek(){
           Node returnNode = null;
         if (topNode != null) {
@@ -75,32 +81,23 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T>  {
         return (T) returnNode.data;
     }
     
-    public void display(){
-        if(topNode == null){
-            System.out.println("Nothing in event list");
-        //back to menu
-        }
-        else{
-            
-            while(topNode != null){
-                int no =0;
-                no +=1;
-                
-                System.out.printf("%-4s %-4s %-4s %-2s %-8s %-8s");// show list value / how???
-//                return String.format("%-4s %-4s %-4s %-2s %-8s %-8s ",eventNo,title,date,time,location,description,fees);
-      
-            }
-        }
-    }
     
+    
+    @Override
     public boolean isEmpty() {
        
         return topNode == null;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
  public int EventTotal(){
      return eList;
  }
+    @Override
     public void clear() {
 //        eList.clear();
         
@@ -111,8 +108,66 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T>  {
 
         
     }
+    
+    
+    public boolean search(int No){
+       if(topNode == null)
+        return false;
+       
+       if(topNode.data.equals(No))
+           return true;
+       
+       return search(No);
+       
+    }
+    
+    @Override
+    public void display(){
+      
+         Node current = this.topNode;
+        String result = "";
+        for (int i = 0; i <eList ; i++) {
+            System.out.println("No"+ (i+1)+" " +current.data.toString() + " ");
+            current = current.next;
+        }
+    }
+    
+    @Override
+     public T getEntry(int eStatus) {
+        T result = null;
+
+        if ((eStatus >= 0) && (eStatus <= eList)) {
+            Node currentNode = topNode;
+            for (int i = 0; i < eStatus; ++i) {
+                currentNode = currentNode.next;
+            }
+            result = currentNode.data;
+        }
+
+        return result;
+    }
  
+ 
+    @Override
+   public EventDetails get(int status) {
+        return eventList.getEntry(status);
+        
+       
+        
+    }
     
+      
+    /**
+     *
+     * @return
+     */
+    @Override
+      public int getDetails(){
+          return eventList.EventTotal();
+      }
+      
+//
+//    
     
-    
+
 }
