@@ -329,7 +329,7 @@ public class Login {
                 String dm = sc.next();
                 if ("0".equals(dm)) {
                     memberList.remove(memberList.get(i));
-                    System.out.println("\nSuccessfully Delete Member !");
+                    System.out.println("\nSuccessfully Delete Member!");
                     scanner.nextLine();
                     memberMaintainencePage();
                 } else {
