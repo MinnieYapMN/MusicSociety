@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package ADT;
+
 import Entity.EventDetails;
+
 import java.util.*;
 //import java.util.NoSuchElementException;
 
 /**
  *
  * @author Ren
+ * @param <T>
  */
 public class EventLinkedStack<T> implements EventLinkedStackInterface<T>  {
    
@@ -53,11 +56,7 @@ EventLinkedStackInterface <EventDetails> eventList ;
     }
 
 
-    @Override
-    public void updateEvent() {
-        
-    }
-    
+
    @Override
     public T pop() {
         T top = peek();
@@ -99,46 +98,40 @@ EventLinkedStackInterface <EventDetails> eventList ;
  }
     @Override
     public void clear() {
-//        eList.clear();
+      topNode = null;
         
     }
+
 
   
-    public void sortEvent() {
-
-        
-    }
-    
-    
-    public boolean search(int No){
-       if(topNode == null)
-        return false;
-       
-       if(topNode.data.equals(No))
-           return true;
-       
-       return search(No);
-       
-    }
     
     @Override
     public void display(){
       
          Node current = this.topNode;
         String result = "";
+        if(current != null){
+            System.out.println("Music Society Event List Details");
+            System.out.println("................................");
         for (int i = 0; i <eList ; i++) {
+           
             System.out.println("No"+ (i+1)+" " +current.data.toString() + " ");
             current = current.next;
         }
+        }else{
+            System.out.println("No record");
+           
+        } 
+            
     }
     
     @Override
-     public T getEntry(int eStatus) {
+     public T getEntry(int a) {
         T result = null;
 
-        if ((eStatus >= 0) && (eStatus <= eList)) {
+        if ((a >= 0) && (a <= eList)) {
             Node currentNode = topNode;
-            for (int i = 0; i < eStatus; ++i) {
+            for (int i = 0; i < a-1; ++i) {
                 currentNode = currentNode.next;
             }
             result = currentNode.data;
@@ -147,25 +140,7 @@ EventLinkedStackInterface <EventDetails> eventList ;
         return result;
     }
  
- 
-    @Override
-   public EventDetails get(int status) {
-        return eventList.getEntry(status);
-        
-       
-        
-    }
-    
-      
-    /**
-     *
-     * @return
-     */
-    @Override
-      public int getDetails(){
-          return eventList.EventTotal();
-      }
-      
+
 //
 //    
     

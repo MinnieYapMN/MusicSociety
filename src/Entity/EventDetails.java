@@ -92,7 +92,7 @@ public class EventDetails {
     @Override
     public String toString() {
 //        return "Event{" + "eventNo=" + eventNo + ", title=" + title + ", date=" + date + ", time=" + time + ", location=" + location + ", description=" + description + ", fees=" + fees + '}';
-     return String.format("%-4s %-4s %-4s %-2s %-8s %-8s ",eventNo,title,date,time,location,description,fees);
+     return String.format("%-4s %-4s %-4s %-2s %-8s %-8s %-6s ",eventNo,title,date,time,location,description,fees);
                 
     }
 

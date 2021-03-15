@@ -12,19 +12,15 @@ import Entity.EventDetails;
  * @author Ren
  */
 public interface EventLinkedStackInterface<T> {
-public void push (T newEntry);
-public void updateEvent();
-public T pop();
+public void push (T newEntry); // add new details
+public T pop(); // remove the top event details
 public T peek();
-public void display();
- public boolean search(int No);
+public void display(); // display all in stack
 public boolean isEmpty();
-public void clear();
-public void sortEvent();
- public int EventTotal();
-public T getEntry(int eStatus);
-public EventDetails get(int status);
-public int getDetails();
+public void clear(); // clear all daata
+ public int EventTotal(); // total in listt
+public T getEntry(int eStatus); // get all entry in data
+
 
     
     
