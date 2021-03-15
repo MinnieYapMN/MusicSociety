@@ -5,15 +5,16 @@
  */
 package client;
 
-
+import ADT.*;
+import Entity.*;
+import java.text.ParseException;
 /**
  *
- * @author Ming Nee
+ * @author Music Society
  */
 public class MusicSociety {
-   
-    public static void main(String[] args) {
-      
+
+    public static void main(String[] args) throws ParseException {
+        // TODO code application logic here
     }
-    
 }
