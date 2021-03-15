@@ -127,4 +127,14 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         return false;
     }
     
+    public T getEntry(int index) {
+        T result = null;
+
+        if ((index >= 1) && (index <= size)) {
+            result = arraySet[index - 1];
+        }
+
+        return result;
+    }
+    
 }

@@ -15,13 +15,13 @@ public interface EventSetInterface<T> {
      //public V search(K key);
 //     public boolean remove(Object x);
 //     public void displayAll();
-//     public T getEntry(int index);
-//     public boolean isEmpty();
+     public T getEntry(int index);
+     public boolean isEmpty();
 //     public int getSize();
-//    public boolean isFull();
+    public boolean isFull();
+        public T remove(T element);
 //         public boolean remove(T anElement);
 //    public boolean checkSubset(SetInterface anotherSet);
 //    public void union(SetInterface anotherSet);
 //    public SetInterface intersection(SetInterface anotherSet);
-//    public boolean isEmpty();
 }
