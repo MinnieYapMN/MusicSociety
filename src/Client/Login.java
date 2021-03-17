@@ -320,7 +320,7 @@ public class Login {
                 System.out.println("Contact No => " + memberList.get(i).getContactNo());
                 System.out.println("Email     => " + memberList.get(i).getEmail());
                 System.out.println("Birthdate => " + memberList.get(i).getBirthdate());
-                System.out.print("Confirm delete press 0 => ");
+                System.out.print("Confirm delete press 0 else back to Member Maintainence Page => ");
                 String dm = sc.next();
                 if ("0".equals(dm)) {
                     memberList.remove(memberList.get(i));
