@@ -9,6 +9,7 @@ import ADT.*;
 import ADT.MemberListInterface;
 import Entity.*;
 import java.util.Scanner;
+import static client.MusicSociety.*;
 
 /**
  *
@@ -16,14 +17,8 @@ import java.util.Scanner;
  */
 public class Login {
 
-    public static MemberListInterface<Member> memberList = new MemberLinkedList();
-    public static Admin admin = new Admin("admin", "admin", "1001", "6011-11932585", "admin@tarc.edu.my", "17/03/1999");
 
-    public static void main(String[] args) {
-        firstPage();
-    }
-
-    private static void firstPage() {
+    public static void firstPage() {
         Scanner scanner = new Scanner(System.in);
         int select = -1;
         System.out.println("\n+---------------------------------+");
