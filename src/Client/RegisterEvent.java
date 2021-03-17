@@ -17,21 +17,73 @@ import java.util.Scanner;
 public class RegisterEvent {
 
     EventSetInterface<Event> memberEvent = new EventArraySet<>();
-    EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<EventDetails>();
-    MemberListInterface<Member> memberList = new MemberLinkedList();
+    EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<>();
+//    MemberListInterface<Member> memberList = new MemberLinkedList();
+    LinkListInterface<Member> memberList;
+    LinkListInterface<Admin> adminList;
 
     public void initialize() throws ParseException {
+        memberList = new LinkList();
+        Member n = new Member("20WMR08981", "Ming Nee", "0123456789", "minnie@gmail.com", "30/7/1999");
+        memberList.add(n);
+        n = new Member("20WMR08928", "Tzu Wey", "0124455667", "ren@gmail.com", "12/12/2000");
+        memberList.add(n);
+        n = new Member("20WMR08932", "Fung Ann", "0102233445", "falim@gmail.com", "11/11/2000");
+        memberList.add(n);
+        n = new Member("20WMR08920", "Wen Xuen", "0137788999", "wxkhau@gmail.com", "10/5/2000");
+        memberList.add(n);
+        n = new Member("20WMR08905", "Jen Nam", "01155556677", "super@gmail.com", "17/03/1999");
+        memberList.add(n);
+        n = new Member("20WMR08952", "Devon", "01110990922", "devon@gmail.com", "30/5/2000");
+        memberList.add(n);
+        n = new Member("20WMR08983", "Jia Wei", "0168822337", "jwyeok@gmail.com", "24/10/2000");
+        memberList.add(n);
+        n = new Member("20WMR08927", "Jia Yi", "01122331216", "daniel@gmail.com", "26/12/1999");
+        memberList.add(n);
+        n = new Member("20WMR08973", "Chia Qi", "0172323565", "cqwong@gmail.com", "09/07/2000");
+        memberList.add(n);
+        n = new Member("20WMR08929", "Jing Zhao", "0187755889", "handsome@gmail.com", "26/06/1999");
+        memberList.add(n);
+        n = new Member("20WMR08999", "Sook Jing", "0134567899", "sjhere@gmail.com", "07/06/2000");
+        memberList.add(n);
+        n = new Member("20WMR08998", "Sammy Yong", "0156341235", "sammy@gmail.com", "24/08/1999");
+        memberList.add(n);
+        n = new Member("20WMR08989", "Chee Weng", "0189674125", "wengbob@gmail.com", "07/07/1999");
+        memberList.add(n);
+        n = new Member("20WMR08959", "Qing Qing", "0131973899", "doubleqing@gmail.com", "03/10/2000");
+        memberList.add(n);
+        n = new Member("20WMR08921", "Sue Faye", "0145678201", "justina@gmail.com", "01/01/2001");
+        memberList.add(n);
+        n = new Member("20WMR08931", "Qian Ying", "0182245698", "qiany@gmail.com", "05/04/2000");
+        memberList.add(n);
+
 //        eventDList. //    memberEvent = new EventArraySet<>();
         EventDetails e = new EventDetails(2212, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
         eventList.push(e);
         e = new EventDetails(2312, "Music stadium", "23/12/2021", "8:00-17:00", "Main Hall", "Please show ur id card to entry the hall", 25.00);
         eventList.push(e);
+//        eventList.push(new EventDetails(2777, "OO Night", "20/05/2021", "20:00-22:00", "Main Hall", "Please show ur id card to entry the hall", 15.00));
+        e = new EventDetails(2777, "OO Night", "20/05/2021", "20:00-22:00", "Main Hall", "Please show ur id card to entry the hall", 15.00);
+        eventList.push(e);
+//        eventList.push(new EventDetails(2787, "OO Night", "20/05/2021", "20:00-22:00", "Main Hall", "Please show ur id card to entry the hall", 15.00));
+        e = new EventDetails(2787, "OO Night", "20/05/2021", "20:00-22:00", "Main Hall", "Please show ur id card to entry the hall", 15.00);
+        eventList.push(e);
 
-        EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<EventDetails>();
-        MemberListInterface<Member> memList = new MemberLinkedList();
-        memList.add(memberList.get(1));
-        eventDList.push(eventList.getEntry(1));
+        EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<>();
+        EventLinkedStackInterface<EventDetails> eventDList1 = new EventLinkedStack<>();
+        LinkListInterface<Member> memList = new LinkList();
+        LinkListInterface<Member> memList1 = new LinkList();
+        memList.add(memberList.getEntry(1));
+        memList1.add(memberList.getEntry(2));
+
+        eventDList.push(new EventDetails(2212, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
+        eventDList1.push(new EventDetails(2777, "OO Night", "20/05/2021", "20:00-22:00", "Main Hall", "Please show ur id card to entry the hall", 15.00));
         memberEvent.add(new Event("0001", "Confirmed", eventDList, memList));
+        memberEvent.add(new Event("0002", "Confirmed", eventDList, memList));
+        memberEvent.add(new Event("0003", "Confirmed", eventDList, memList));
+        memberEvent.add(new Event("0004", "Confirmed", eventDList1, memList));
+        memberEvent.add(new Event("0005", "Confirmed", eventDList1, memList1));
+        memberEvent.add(new Event("0006", "Confirmed", eventDList1, memList1));
     }
 
     public static void main(String[] args) throws ParseException {
@@ -66,19 +118,16 @@ public class RegisterEvent {
                         registerEvent();
                         break;
                     case 2:
-//                        removeParticularDuplicates();
+                        cancelRegister();
                         break;
                     case 3:
-//                        findDuplicates();
+                        displayregisterList();
                         break;
                     case 4:
-//                        findDup();
+                        searchRegisterMember();
                         break;
                     case 5:
-//                        removeDuplicates();
-                        break;
-                    case 6:
-//                        removeDuplicates2();
+                        announcement();
                         break;
                     case 0:
                         break;
@@ -87,7 +136,7 @@ public class RegisterEvent {
                         break;
                 }
             } catch (Exception ex) {
-                System.out.println("Error: Only number input is acceptable!!\n");
+                System.out.println("Error: Only number input is acceptable!\n");
                 scanner.next();
             }
         } while (choice != 0);
@@ -102,15 +151,18 @@ public class RegisterEvent {
         String ID = "";
         boolean check = false;
         char cont;
-        int j = 0;
+        int memArray = -1;
+//        EventSetInterface<Event> memEvent = new EventArraySet<>();
         do {
 
-            System.out.println("Enter your IC number: ");
+            System.out.println("Enter Student ID number: ");
             ID = scanner.next();
 
-            for (int i = 0; i < memberList.getLength(); i++) {
-                if (ID.equals(memberList.get(i).getStudentID())) {
+            for (int i = 0; i < memberList.getNumberOfEntries(); i++) {
+                if (ID.equals(memberList.getEntry(i).getStudentID())) {
+//                    System.out.println(memberList.getEntry(i).getStudentID());
                     check = true;
+                    memArray = i;
                     break;
                 } else {
                     check = false;
@@ -125,31 +177,37 @@ public class RegisterEvent {
         } while (check != true);
 
         if (check == true) {
-
-            System.out.println(" ============================================");
-            System.out.println(" ++             Events                      ++");
-            System.out.println(" ===========================================\n");
-            eventList.display();
-
             do {
+
+                System.out.println(" ============================================");
+                System.out.println(" ++             Events                      ++");
+                System.out.println(" ===========================================\n");
+                eventList.display();
+
                 cont = 'n';
-                String eventNo = "";
+                int eventNo;
+                int arrayNo = -1;
+
                 do {
                     System.out.print(" Select Event No: ");
-                    eventNo = scanner1.next();
+                    eventNo = scanner1.nextInt();
 
-                    for (j = 0; j < eventList.getEntry(j).getEventNo(); j++) {
-                        if (eventNo.equals(eventList.getEntry(j).getEventNo())) {
+                    for (int j = 0; j <= eventList.EventTotal(); j++) {
+                        if (eventList.getEntry(j).getEventNo() == eventNo) {
                             check = true;
+                            arrayNo = j;
                             break;
                         } else {
                             check = false;
                         }
                     }
+
                     if (check == false) {
                         System.out.println("Please enter the Event No correctly !");
+                    } else {
+                        System.out.println("Register successful!");
                     }
-                } while (check == false);
+                } while (check != true);
 
                 do {
                     System.out.print("\n Register again? [Y=yes, N=no]: ");
@@ -158,12 +216,88 @@ public class RegisterEvent {
                         System.out.println("\n Invalid Input, please enter 'Y' or 'N'");
                     }
                 } while (cont != 'Y' && cont != 'N');
-                
-//                memberEvent.add(new Event("0002", "Confirmed", eventList.getEntry(j).getEventNo(), memberList));
-            } while (cont == 'Y');
 
+//                EventDetails eventD = eventList.getEntry(j);
+//                Member member = memberList.get(j);
+//                memberEvent.add(new Event("0009", "Confirmed", eventList.getEntry(arrayNo), memberList.getEntry(memArray)));
+                EventLinkedStackInterface<EventDetails> neweventDList = new EventLinkedStack<>();
+                neweventDList.push(eventList.getEntry(arrayNo));
+                LinkListInterface<Member> newmemList = new LinkList();
+                newmemList.add(memberList.getEntry(memArray));
+
+                System.out.println(neweventDList.toString());
+                System.out.println(newmemList.toString());
+                memberEvent.add(new Event("Confirmed", neweventDList, newmemList));
+                //memberEvent.add(new Event("0001", "Confirmed", eventDList, memList));
+            } while (cont == 'Y');
+//            EventDetails eventD = eventList.getEntry(j);
+//            Member member = memberList.getEntry(j);
+//            SportShoesOrderingSystem.orderArr[Order.getCountOrder()] = new Order(custInfor, odrDetailsAL, "Pending");
+//              memberEvent = new Event("0002", "Confirmed", eventD.getEventNo(), member.getStudentID());
         }
 
     }
-}
 
+    public void displayregisterList() {
+//           for (int i = 0; i < memberEvent.toString(); i++) {
+//               
+//               
+//           }
+        System.out.println(memberEvent.toString());
+    }
+
+    public void cancelRegister() {
+        Scanner scanner = new Scanner(System.in);
+        String registerNo = "";
+        boolean check = false;
+        do {
+            System.out.println(memberEvent.toString());
+
+            System.out.println("Enter the registration No : ");
+            
+            registerNo = scanner.nextLine();
+            
+//            for (int i = 0; i < memberEvent.getSize(); i++) {
+//                if (registerNo.equals(memberEvent.getEntry(i).getRegisNo())) {
+//                    System.out.println("Hi !");
+//                    System.out.println(memberEvent.toString());
+//                    break;
+//                }
+//            }
+
+            for (int i = 0; i < memberEvent.getSize(); i++) {
+                if (registerNo.equals(memberEvent.getEntry(i).getRegisNo())) {
+                    check = true;
+                    memberEvent.remove(memberEvent.getEntry(i));
+                    System.out.println(memberEvent.toString());
+                    break;
+                } else {
+                    check = false;
+                    System.out.println("Invalid register No ! Please re-enter again.");
+                    break;
+                }
+            }
+//
+//            if (check = true) {
+//                memberEvent.remove(memberEvent.getEntry(i));
+//                System.out.println(memberEvent.toString());
+//            }
+        } while (check != true);
+
+    }
+
+    public void searchRegisterMember() {
+        Scanner regisN = new Scanner(System.in);
+        System.out.println("Please enter the register No :");
+        String regis = regisN.nextLine();
+        System.out.println("");
+//        System.out.println(memberEvent.contains(regis));
+        System.out.println("");
+
+    }
+
+    public void announcement() {
+
+    }
+
+}

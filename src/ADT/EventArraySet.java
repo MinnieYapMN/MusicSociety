@@ -8,6 +8,7 @@ package ADT;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.*;
+
 /**
  *
  * @author Fung Ann
@@ -18,6 +19,7 @@ public class EventArraySet<T> implements EventSetInterface<T> {
     private int size;
 //    private static final double LOAD_FACTOR = .6;
     private static final int DEFAULT_SIZE = 11; // should be prime
+    private final int NOT_FOUND = -1;
 
     public EventArraySet() {
         this(DEFAULT_SIZE);
@@ -30,6 +32,7 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         arraySet = (T[]) new Object[capacity];
     }
 
+    @Override
     public boolean add(T newElement) {
         // duplication check newElement is it exist in the currentSet
         for (int i = 0; i < size; i++) {
@@ -47,6 +50,7 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         return true;
     }
 
+    @Override
     public boolean isFull() {
         return size == arraySet.length;
     }
@@ -61,10 +65,12 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         arraySet = larger;
     }
 
+    @Override
     public boolean isEmpty() {
         return (size == 0);
     }
 
+    @Override
     public T remove(T element) {
         T retVal = null;
         int i = 0;
@@ -88,6 +94,7 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         return retVal;
     }
 
+    @Override
     public String toString() {
         String output = "";
 
@@ -102,9 +109,8 @@ public class EventArraySet<T> implements EventSetInterface<T> {
 //      return new ArrayIterator<T> (contents, count);
 //        return ArraySet().iterator();
 //    }
-
     public EventSetInterface<T> union(EventSetInterface<T> set) {
-        EventArraySet<T> both = new EventArraySet<T>();
+        EventArraySet<T> both = new EventArraySet<>();
 
         for (int index = 0; index < size; index++) {
             both.add(arraySet[index]);
@@ -114,27 +120,57 @@ public class EventArraySet<T> implements EventSetInterface<T> {
 //        while (scan.hasNext()) {
 //            both.add((T) scan.next());
 //        }
-
         return both;
     }
 
-    public boolean contains(T element) {
-        for (int i = 0; i < size; i++) {
-            if (arraySet[i].equals(element)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean contains(T element) {
+//        for (int i = 0; i < size; i++) {
+//            if (arraySet[i].equals(element)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+    @Override
+//    public boolean contains(T target) {
+//        int search = NOT_FOUND;
+//
+//        for (int index = 0; index < size && search == NOT_FOUND; index++) {
+//            if (arraySet[index].equals(target)) {
+//                search = index;
+//            }
+//        }
+//
+//        return (search != NOT_FOUND);
+//    }
     
+     public boolean contains(T target) { 
+	 for (int i = 0; i < size; i++) {
+		 if (target.equals(arraySet[i])) {
+			 return true;
+		 }
+	 }
+	 return false; 
+ }
+
+    @Override
     public T getEntry(int index) {
         T result = null;
 
         if ((index >= 1) && (index <= size)) {
-            result = arraySet[index - 1];
+//            result = arraySet[index - 1];
+            result = arraySet[index];
         }
 
         return result;
     }
-    
+     
+//         public T getEntry(int index) {
+//
+//    }
+
+    public int getSize() {
+        return size;
+    }
+
 }

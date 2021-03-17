@@ -15,13 +15,12 @@ import java.util.*;
  * @author Ren
  * @param <T>
  */
-public class EventLinkedStack<T> implements EventLinkedStackInterface<T>  {
-   
-    private int eList;
-   private Node topNode;
+public class EventLinkedStack<T> implements EventLinkedStackInterface<T> {
 
-EventLinkedStackInterface <EventDetails> eventList ;
- 
+    private int eList;
+    private Node topNode;
+
+    EventLinkedStackInterface<EventDetails> eventList;
 
     //Inner class
     private class Node {
@@ -52,26 +51,23 @@ EventLinkedStackInterface <EventDetails> eventList ;
 
         topNode = newNode;
         eList++;
-  
+
     }
 
-
-
-   @Override
+    @Override
     public T pop() {
         T top = peek();
 
         if (topNode != null) {
             topNode = topNode.next;
         }
-    eList--;
+        eList--;
         return top;
     }
 
-    
     @Override
-    public T peek(){
-          Node returnNode = null;
+    public T peek() {
+        Node returnNode = null;
         if (topNode != null) {
             returnNode = topNode;
 
@@ -79,12 +75,10 @@ EventLinkedStackInterface <EventDetails> eventList ;
 
         return (T) returnNode.data;
     }
-    
-    
-    
+
     @Override
     public boolean isEmpty() {
-       
+
         return topNode == null;
     }
 
@@ -93,45 +87,43 @@ EventLinkedStackInterface <EventDetails> eventList ;
      * @return
      */
     @Override
- public int EventTotal(){
-     return eList;
- }
+    public int EventTotal() {
+        return eList;
+    }
+
     @Override
     public void clear() {
-      topNode = null;
-        
+        topNode = null;
+
     }
 
-
-  
-    
     @Override
-    public void display(){
-      
-         Node current = this.topNode;
+    public void display() {
+
+        Node current = this.topNode;
         String result = "";
-        if(current != null){
+        if (current != null) {
             System.out.println("Music Society Event List Details");
             System.out.println("................................");
-        for (int i = 0; i <eList ; i++) {
-           
-            System.out.println("No"+ (i+1)+" " +current.data.toString() + " ");
-            current = current.next;
-        }
-        }else{
+            for (int i = 0; i < eList; i++) {
+
+                System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+                current = current.next;
+            }
+        } else {
             System.out.println("No record");
-           
-        } 
-            
+
+        }
+
     }
-    
+
     @Override
-     public T getEntry(int a) {
+    public T getEntry(int a) {
         T result = null;
 
         if ((a >= 0) && (a <= eList)) {
             Node currentNode = topNode;
-            for (int i = 0; i < a-1; ++i) {
+            for (int i = 0; i < a - 1; ++i) {
                 currentNode = currentNode.next;
             }
             result = currentNode.data;
@@ -139,10 +131,7 @@ EventLinkedStackInterface <EventDetails> eventList ;
 
         return result;
     }
- 
 
 //
 //    
-    
-
 }
