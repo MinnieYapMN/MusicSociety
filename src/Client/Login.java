@@ -52,7 +52,7 @@ public class Login {
             }
         } catch (Exception e) {
             System.out.println("**Invalid Input! Please Re-enter Again!**\n");
-            firstPage();
+            scanner.next();
         }
 
     }
@@ -142,10 +142,9 @@ public class Login {
                 }
             } catch (Exception e) {
                 System.out.println("**Invalid Input! Please Re-enter Again!**\n");
-                adminHomepage();
+                sc.next();
             }
-        } while (select 
-                != 0);
+        } while (select != 0);
     }
 
     private static void memberMaintainencePage() {
