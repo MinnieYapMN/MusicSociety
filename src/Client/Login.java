@@ -95,7 +95,6 @@ public class Login {
 
     public static void adminHomepage() {
         Scanner sc = new Scanner(System.in);
-        Scanner scanner = new Scanner(System.in);
         int select = -1;
 
         do {
@@ -143,9 +142,9 @@ public class Login {
                 }
             } catch (Exception e) {
                 System.out.println("**Invalid Input! Please Re-enter Again!**\n");
-                scanner.nextLine();
+                adminHomepage();
             }
-        } while (select
+        } while (select 
                 != 0);
     }
 
