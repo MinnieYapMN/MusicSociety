@@ -19,7 +19,7 @@ public void display(); // display all in stack
 public boolean isEmpty();
 public void clear(); // clear all daata
  public int EventTotal(); // total in listt
-public T getEntry(int eStatus); // get all entry in data
+public T getEntry(int a); // get all entry in data
 
 
     

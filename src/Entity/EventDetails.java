@@ -20,8 +20,17 @@ public class EventDetails {
     private String location;
     private String description;
     private double fees;
+    private static int nextEventNo = 2000;
+ private int eno;
 
     public EventDetails(int eventNo, String title, String date, String time, String location, String description, double fees) {
+//       int eNo = Integer.parseInt((nextEventNo));
+//       eNo++;
+//      countEventNo++;
+      eno = nextEventNo;
+      nextEventNo++;
+    
+      
         this.eventNo = eventNo;
         this.title = title;
         this.date = date;
@@ -30,8 +39,18 @@ public class EventDetails {
         this.description = description;
         this.fees = fees;
     }
+ 
+ 
+ 
+public  String toString1(){
+       return String.format("%15d",eno)+eventNo;
+   }
 
-   
+    public static int getNextEventNo() {
+        return nextEventNo;
+    }
+ 
+  
 
     public int getEventNo() {
         return eventNo;
@@ -62,6 +81,7 @@ public class EventDetails {
     }
 
     public void setEventNo(int eventNo) {
+       
         this.eventNo = eventNo;
     }
 
