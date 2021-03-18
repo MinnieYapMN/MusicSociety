@@ -25,14 +25,20 @@ public interface EventSetInterface<T> {
     public boolean isFull();
 
     public T remove(T element);
+//    public boolean remove(T anElement);
+    
+     public boolean contains(T target);
+     
+//     public EventSetInterface<T> search(T regNo);
 
-    public boolean contains(T target);
-//         public boolean remove(T anElement);
+//    public boolean contains(T searchRegisNo, T searchStudID, T searchEventNo);
+//    public EventSetInterface<T> contains(T searchRegisNo, T searchStudID, T searchEventNo);
+    
+//    public int compare(T searchRegisNo, T searchStudID, T searchEventNo);
+//    public EventSetInterface<T> union(EventSetInterface<T> set);
+    public EventSetInterface<T> union(EventLinkedStackInterface<T> set);
 //    public boolean checkSubset(SetInterface anotherSet);
 //    public void union(SetInterface anotherSet);
 //    public SetInterface intersection(SetInterface anotherSet);
 
-//    public boolean contains(String regis);
-
-//    public boolean contains(String target);
 }
