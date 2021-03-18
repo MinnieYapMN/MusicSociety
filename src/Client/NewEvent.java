@@ -310,7 +310,7 @@ public EventDetails details;
                
                 System.out.println("7. Fees " + eventList.getEntry(i).getFees());
                 fin = true;
-                break;
+//                break;
               }
              
     }
