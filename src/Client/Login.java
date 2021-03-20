@@ -11,6 +11,7 @@ import Entity.*;
 import java.util.Scanner;
 import static client.MusicSociety.*;
 
+
 /**
  *
  * @author Ming Nee
@@ -130,7 +131,7 @@ public class Login {
                         memberMaintainencePage();
                         break;
                     case 2:
-                        //  Event();
+//                        RegisterEvent();
                         break;
                     case 0:
                         System.out.println("\n=====================================");

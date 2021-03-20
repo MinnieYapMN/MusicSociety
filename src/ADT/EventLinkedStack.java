@@ -106,7 +106,6 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T> {
             System.out.println("Music Society Event List Details");
             System.out.println("................................");
             for (int i = 0; i < eList; i++) {
-
                 System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
                 current = current.next;
             }

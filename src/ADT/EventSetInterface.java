@@ -12,33 +12,21 @@ package ADT;
 public interface EventSetInterface<T> {
 
     public boolean add(T newEntry);
-    //public V search(K key);
-//     public boolean remove(Object x);
-//     public void displayAll();
-
-    public T getEntry(int index);
-
-    public boolean isEmpty();
-
-    public int getSize();
 
     public boolean isFull();
 
-    public T remove(T element);
-//    public boolean remove(T anElement);
-    
-     public boolean contains(T target);
-     
-//     public EventSetInterface<T> search(T regNo);
+    public boolean isEmpty();
 
-//    public boolean contains(T searchRegisNo, T searchStudID, T searchEventNo);
-//    public EventSetInterface<T> contains(T searchRegisNo, T searchStudID, T searchEventNo);
-    
-//    public int compare(T searchRegisNo, T searchStudID, T searchEventNo);
-//    public EventSetInterface<T> union(EventSetInterface<T> set);
+    public T remove(T element);
+
+    public String toString();
+
     public EventSetInterface<T> union(EventLinkedStackInterface<T> set);
-//    public boolean checkSubset(SetInterface anotherSet);
-//    public void union(SetInterface anotherSet);
-//    public SetInterface intersection(SetInterface anotherSet);
+
+    public boolean contains(T target);
+
+    public T getEntry(int index);
+
+    public int getSize();
 
 }

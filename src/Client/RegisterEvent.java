@@ -85,16 +85,15 @@ public class RegisterEvent {
         memberEvent.add(new Event("0004", "Confirmed", eventDList1, memList2));
         memberEvent.add(new Event("0005", "Confirmed", eventDList2, memList));
         memberEvent.add(new Event("0006", "Confirmed", eventDList1, memList1));
-        
 
     }
 
-    public static void main(String[] args) throws ParseException {
-        RegisterEvent app = new RegisterEvent();
-
-        app.initialize();
-        app.registerEventMenu();
-    }
+//    public static void main(String[] args) throws ParseException {
+//        RegisterEvent app = new RegisterEvent();
+//
+//        app.initialize();
+//        app.registerEventMenu();
+//    }
 
     public void registerEventMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -109,7 +108,6 @@ public class RegisterEvent {
             System.out.println("|         [2] Cancel Register              |");
             System.out.println("|         [3] Member Registration List     |");
             System.out.println("|         [4] Search Event List            |");
-            System.out.println("|         [5] View Announcement with Event |");
             System.out.println("|         [0] Exit to Homepage             |");
             System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
             System.out.print(" Please enter a number => ");
@@ -128,9 +126,6 @@ public class RegisterEvent {
                         break;
                     case 4:
                         searchRegisterMember();
-                        break;
-                    case 5:
-                        announcement();
                         break;
                     case 0:
                         break;
@@ -163,7 +158,6 @@ public class RegisterEvent {
 
             for (int i = 0; i < memberList.getNumberOfEntries(); i++) {
                 if (ID.equals(memberList.getEntry(i).getStudentID())) {
-//                    System.out.println(memberList.getEntry(i).getStudentID());
                     check = true;
                     memArray = i;
                     break;
@@ -218,18 +212,16 @@ public class RegisterEvent {
                     if (cont != 'Y' && cont != 'N') {
                         System.out.println("\n Invalid Input, please enter 'Y' or 'N'");
                     }
+                    if (cont == 'N') {
+//                        payment();
+                    }
                 } while (cont != 'Y' && cont != 'N');
 
-//                EventDetails eventD = eventList.getEntry(j);
-//                Member member = memberList.get(j);
-//                memberEvent.add(new Event("0009", "Confirmed", eventList.getEntry(arrayNo), memberList.getEntry(memArray)));
                 EventLinkedStackInterface<EventDetails> neweventDList = new EventLinkedStack<>();
                 neweventDList.push(eventList.getEntry(arrayNo));
                 LinkListInterface<Member> newmemList = new LinkList();
                 newmemList.add(memberList.getEntry(memArray));
 
-//                System.out.println(neweventDList.toString());
-//                System.out.println(newmemList.toString());
                 memberEvent.add(new Event("Confirmed", neweventDList, newmemList));
             } while (cont == 'Y');
         }
@@ -237,52 +229,18 @@ public class RegisterEvent {
     }
 
     public void displayregisterList() {
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("|                                            |");
+        System.out.println("|          Member Registration List          |");
+        System.out.println("|                                            |");
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++\n");
+        System.out.printf("%-20s %-12s %-10s %-10s\n", "Registration No", "Student ID", "Event No", "Status");
+        System.out.println("===============      ===========  =========  =========");
 
         System.out.println(memberEvent.toString());
     }
 
-//    public void cancelRegister() {
-//        Scanner scanner = new Scanner(System.in);
-//        String registerNo = "";
-//        boolean check = false;
-//        do {
-//            System.out.println(memberEvent.toString());
-//
-//            System.out.println("Enter the registration No : ");
-//            
-//            registerNo = scanner.nextLine();
-//            
-////            for (int i = 0; i < memberEvent.getSize(); i++) {
-////                if (registerNo.equals(memberEvent.getEntry(i).getRegisNo())) {
-////                    System.out.println("Hi !");
-////                    System.out.println(memberEvent.toString());
-////                    break;
-////                }
-////            }
-//
-//            for (int i = 0; i < memberEvent.getSize(); i++) {
-//                if (registerNo.equals(memberEvent.getEntry(i).getRegisNo())) {
-//                    check = true;
-//                    memberEvent.remove(memberEvent.getEntry(i));
-//                    System.out.println(memberEvent.toString());
-//                    System.out.println("Refund will be get within 3 days.");
-//                    break;
-//                } else {
-//                    check = false;
-//                    System.out.println("Invalid register No ! Please re-enter again.");
-//                    break;
-//                }
-//            }
-////
-////            if (check = true) {
-////                memberEvent.remove(memberEvent.getEntry(i));
-////                System.out.println(memberEvent.toString());
-////            }
-//        } while (check != true);
-//
-//    }
-    
- public void cancelRegister() {
+    public void cancelRegister() {
         Scanner scanner = new Scanner(System.in);
         String registerNo = "";
         boolean check = false;
@@ -290,58 +248,40 @@ public class RegisterEvent {
             System.out.println(memberEvent.toString());
 
             System.out.println("Enter the registration No : ");
-            
+
             registerNo = scanner.nextLine();
-            
+
             for (int i = 0; i < memberEvent.getSize(); i++) {
                 if (registerNo.equals(memberEvent.getEntry(i).getRegisNo())) {
                     check = true;
                     memberEvent.remove(memberEvent.getEntry(i));
-//                    System.out.println(memberEvent.toString());
-                    System.out.println("Refund will be get within 3 days.");
+                    System.out.println("Registration No :" + registerNo + " will be cancelled. \nRefund will be get within 3 days.");
                     break;
                 }
             }
             if (check == false) {
                 System.out.println("Invalid register No ! Please re-enter again.");
             }
-//
-//            if (check = true) {
-//                memberEvent.remove(memberEvent.getEntry(i));
-//                System.out.println(memberEvent.toString());
-//            }
         } while (check != true);
 
     }
 
     public void searchRegisterMember() {
-        
-        Event serachRegisNo = new Event();
+
         Scanner regisN = new Scanner(System.in);
         System.out.println("Please enter the register No :");
         String regis = regisN.nextLine();
-//        serachRegisNo.setRegisNo(regis);
-//        System.out.println(memberEvent.contains(serachRegisNo));
-//        break;
+
+        System.out.printf("%-20s %-12s %-10s %-10s\n", "Registration No", "Student ID", "Event No", "Status");
+        System.out.println("===============      ===========  =========  =========");
+
         for (int i = 0; i < memberEvent.getSize(); i++) {
-            if (regis.equals(memberEvent.getEntry(i).getRegisNo()))
+            if (regis.equals(memberEvent.getEntry(i).getRegisNo())) {
                 System.out.println(memberEvent.getEntry(i).toString());
+            }
         }
         System.out.println("");
 
-    }
-
-    public void announcement() {
-//        EventSetInterface<Event> eventAnno = new EventArraySet<>();
-//        eventAnno.add(new Event("Secret customer"));
-//        System.out.println(memberEvent.union(eventAnno));
-
-//        EventSetInterface<Event> anno = new EventArraySet<>();
-//        EventLinkedStackInterface<EventDetails> eventAnno = new EventLinkedStack<>();
-//        anno.add(new Event("Secret customer"));
-//        
-//        anno.union((EventLinkedStackInterface<Event>) eventAnno.getEntry(0));
-//        System.out.println(eventList.EventTotal());
     }
 
 }

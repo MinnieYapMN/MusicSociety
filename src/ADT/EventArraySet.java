@@ -94,24 +94,6 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         return retVal;
     }
 
-//        public boolean remove(T anElement){
-//        for(int i=0; i<size;i++){
-//            if(arraySet[i].equals(anElement)){
-//                //remove by calling removeGap
-//                removeGap(i);
-//                size--;
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//        
-//            private void removeGap(int targetIndex){
-//        // the for loop should start from the targetIndex onward 
-//        for(int i=targetIndex; i<size-1;i++){
-//            arraySet[i] = arraySet[i+1];
-//        }
-//    }
     @Override
     public String toString() {
         String output = "";
@@ -123,10 +105,6 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         return output;
     }
 
-//    public Iterator<T> iterator() {
-//      return new ArrayIterator<T> (contents, count);
-//        return ArraySet().iterator();
-//    }
     public EventSetInterface<T> union(EventLinkedStackInterface<T> set) {
         EventArraySet<T> both = new EventArraySet<>();
 
@@ -134,86 +112,21 @@ public class EventArraySet<T> implements EventSetInterface<T> {
             both.add(arraySet[index]);
         }
 
-//        Iterator scan = set.iterator();
-//        while (scan.hasNext()) {
-//            both.add((T) scan.next());
-//        }
         return both;
     }
 
-//    public boolean contains(T element) {
-//        for (int i = 0; i < size; i++) {
-//            if (arraySet[i].equals(element)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
     @Override
     public boolean contains(T target) {
         int search = NOT_FOUND;
 
         for (int index = 0; index < size && search == NOT_FOUND; index++) {
             if (arraySet[index].equals(target)) {
-//                search = index;
                 return true;
             }
         }
         return false;
-//        return (search != NOT_FOUND);
     }
     
-//    public boolean search(T target) {
-//        EventArraySet<T> keyword = new EventArraySet<>();
-//        
-//        for (int i = 0; i < size; i++) {
-//            if (arraySet[i].equals(keyword.getEntry(i))) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-    
-//    @Override
-//        public EventArraySet<T> search(T regNo) {
-//        EventArraySet<T> item = new EventArraySet<>();
-//        for(int i=0; i < size; i++){
-//            if(arraySet[i].compareRegisNo(regNo) == 0){
-//                item.add(arraySet[i]);
-//            }
-//        }
-//        return item;
-//    }
-        
-
-//    public EventSetInterface<T> contains(T searchRegisNo, T searchStudID, T searchEventNo) {
-//        EventArraySet<T> keyword = new EventArraySet<>();
-////        Event e = new Event();
-//        T[] array = arraySet;
-//        for (int i = 0; i < size; i++) {
-//            if ((searchRegisNo, searchStudID, searchEventNo) == 0) {
-//
-//                return true;
-//            }
-//            break;
-//        }
-//        return false;
-//    }
-//    public LinkedListInterface<T> filterAdvance(T filterId1, T filterName1, T filterDate1, T filterDesc1, T filterURL1, T filterKeyword1, T filtersysRequirement1, T filterPEGI1, T filterSize1, T filterRating1) {
-//        LinkedList<T> advanceKeyword = new LinkedList<>();
-//        Node temp = firstNode;
-//        for (int i = 0; i < numberOfEntries; i++) {
-//            if (temp.data.compareByAdvance(filterId1, filterName1, filterDate1, filterDesc1, filterURL1, filterKeyword1, filtersysRequirement1, filterPEGI1, filterSize1, filterRating1) == 0) {
-//                advanceKeyword.add((T) temp.data);
-//                temp = temp.next;
-//            } else {
-//                temp = temp.next;
-//            }
-//
-//        }
-//        return advanceKeyword;
-//
-//    }
     @Override
     public T getEntry(int index) {
         T result = null;
@@ -225,9 +138,6 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         return result;
     }
 
-//         public T getEntry(int index) {
-//
-//    }
     public int getSize() {
         return size;
     }
