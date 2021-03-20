@@ -9,7 +9,7 @@ package ADT;
  *
  * @author Fung Ann
  */
-public interface EventSetInterface<T> {
+public interface SetInterface<T> {
 
     public boolean add(T newEntry);
 
@@ -21,7 +21,7 @@ public interface EventSetInterface<T> {
 
     public String toString();
 
-    public EventSetInterface<T> union(EventLinkedStackInterface<T> set);
+    public SetInterface<T> union(EventLinkedStackInterface<T> set);
 
     public boolean contains(T target);
 

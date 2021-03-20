@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
  * @author Fung Ann
  * @param <T>
  */
-public class EventArraySet<T> implements EventSetInterface<T> {
+public class ArraySet<T> implements SetInterface<T> {
 
     private T[] arraySet;
     private int size;
@@ -21,11 +21,11 @@ public class EventArraySet<T> implements EventSetInterface<T> {
     private static final int DEFAULT_SIZE = 11; // should be prime
     private final int NOT_FOUND = -1;
 
-    public EventArraySet() {
+    public ArraySet() {
         this(DEFAULT_SIZE);
     }
 
-    public EventArraySet(int capacity) {
+    public ArraySet(int capacity) {
         this.size = 0; //initial to 0, means start adding at index 0
         // setArray = new int[capacity]
         // java SUPER class - Object
@@ -105,8 +105,8 @@ public class EventArraySet<T> implements EventSetInterface<T> {
         return output;
     }
 
-    public EventSetInterface<T> union(EventLinkedStackInterface<T> set) {
-        EventArraySet<T> both = new EventArraySet<>();
+    public SetInterface<T> union(EventLinkedStackInterface<T> set) {
+        ArraySet<T> both = new ArraySet<>();
 
         for (int index = 0; index < size; index++) {
             both.add(arraySet[index]);

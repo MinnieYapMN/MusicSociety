@@ -15,10 +15,11 @@ import java.util.Scanner;
  * @author Music Society
  */
 public class MusicSociety {
-   public static MemberListInterface<Member> memberList = new MemberLinkedList();
+
+    public static MemberListInterface<Member> memberList = new MemberLinkedList();
     public static Admin admin = new Admin("admin", "admin", "1001", "6011-11932585", "admin@tarc.edu.my", "17/03/1999");
 
-    EventSetInterface<Event> memberEvent = new EventArraySet<>();
+    SetInterface<Event> memberEvent = new ArraySet<>();
     EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<>();
 //    MemberListInterface<Member> memberList = new MemberLinkedList();
 //    LinkListInterface<Member> memberList;
@@ -414,7 +415,7 @@ public class MusicSociety {
         System.out.println("No such Student ID!");
         memberMaintainencePage();
     }
-    
+
     public void registerEventMenu() {
         Scanner scanner = new Scanner(System.in);
         int choice = -1;
@@ -428,6 +429,7 @@ public class MusicSociety {
             System.out.println("|         [2] Cancel Register              |");
             System.out.println("|         [3] Member Registration List     |");
             System.out.println("|         [4] Search Event List            |");
+            System.out.println("|         [5] Event Maintainence           |");
             System.out.println("|         [0] Exit to Homepage             |");
             System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
             System.out.print(" Please enter a number => ");
@@ -446,6 +448,9 @@ public class MusicSociety {
                         break;
                     case 4:
                         searchRegisterMember();
+                        break;
+                    case 5:
+//                        searchRegisterMember();
                         break;
                     case 0:
                         break;
@@ -488,7 +493,7 @@ public class MusicSociety {
 
             if (check == false) {
                 System.out.println("Sorry, haven register yet...");
-                //registerNewMember;
+                registerNewMember();
             }
 
         } while (check != true);
@@ -588,25 +593,39 @@ public class MusicSociety {
 
     public void searchRegisterMember() {
 
-        Scanner regisN = new Scanner(System.in);
-        System.out.println("Please enter the register No :");
-        String regis = regisN.nextLine();
+        Scanner scanner = new Scanner(System.in);
         boolean check = false;
 
-        System.out.printf("%-20s %-12s %-10s %-10s\n", "Registration No", "Student ID", "Event No", "Status");
-        System.out.println("===============      ===========  =========  =========");
+        do {
 
-        for (int i = 0; i < memberEvent.getSize(); i++) {
-            if (regis.equals(memberEvent.getEntry(i).getRegisNo())) {
-                check = true;
-                System.out.println(memberEvent.getEntry(i).toString());
-                break;
+            Scanner regisN = new Scanner(System.in);
+            System.out.println("Please enter the register No :");
+            String regis = regisN.nextLine();
+
+            for (int i = 0; i < memberEvent.getSize(); i++) {
+                if (regis.equals(memberEvent.getEntry(i).getRegisNo())) {
+                    check = true;
+                    System.out.printf("%-20s %-12s %-10s %-10s\n", "Registration No", "Student ID", "Event No", "Status");
+                    System.out.println("===============      ===========  =========  =========");
+                    System.out.println(memberEvent.getEntry(i).toString());
+                    break;
+                } else {
+                    check = false;
+                }
             }
-        }
-        if (check == false) {
-            System.out.println("");
-        }
-        System.out.println("");
+            if (check == false) {
+                System.out.println("");
+                System.out.println("The register No may invalid or removed ! Please re-enter again...");
+            }
+
+            System.out.println("\n[1] Search again");
+            System.out.println("[Any key] Exit to the Event Menu");
+            System.out.print("Your option => ");
+            String option = scanner.nextLine();
+            if (!option.equals("1")) {
+                registerEventMenu();
+            }
+        } while (check != true);
 
     }
 
