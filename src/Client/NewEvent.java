@@ -17,6 +17,7 @@ import static java.lang.System.exit;
 public class NewEvent {
 
 public static EventLinkedStackInterface <EventDetails> eventList = new EventLinkedStack<EventDetails>();
+
 public EventDetails details;
     
   public static void main(String []args){
@@ -93,7 +94,7 @@ public EventDetails details;
                     Remove();      
                     break;
                 case 0:
-                    exit(0);
+//                    MusicSociety();
                 default:
                     System.out.println("Invalid selection");
             }
