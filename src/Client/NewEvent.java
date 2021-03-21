@@ -21,22 +21,36 @@ public EventDetails details;
     
   public static void main(String []args){
              
-        EventDetails e = new EventDetails(2212,"Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
+        EventDetails e = new EventDetails(2008,"Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
         eventList.push(e);
         
-//        e= new EventDetails(2212,"Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
-//        eventList.push(e);
-        e = new EventDetails(2312,"Music stadium","23/12/2021","8:00-17:00","Main Hall","Please show ur id card to entry the hall",25.00);
-        eventList.push(e);
-         e = new EventDetails(2777,"OO Night","20/05/2021","20:00-22:00","Main Hall","Please show ur id card to entry the hall",15.00);
-        eventList.push(e);
-          e = new EventDetails(2333,"Music Concert","20/04/2021","20:00-22:00","Sport Complex","Please enter the hall early 15 minutes ",25.00);
-        eventList.push(e);
-          e = new EventDetails(2227,"Music Night","22/05/2021","20:00-22:00","Main Hall","Please show ur id card to entry the hall",30.00);
+//       
+        e = new EventDetails(2009,"Singing Lession","19/11/2020","20:00-21:00","Google Meet Link","Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ",100.00);
         eventList.push(e);
         
+        e = new EventDetails(2010,"Advance Guitar Lesson","24/11/2020","18:00-19:00","Google Meet Link","Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)",100.00);
+        eventList.push(e);
         
-     menu();
+        e = new EventDetails(2011,"Guitar Lesson","24/11/2020","19:30-20:30","Google Meet Link","Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)",100.00);
+        eventList.push(e);
+        
+        e = new EventDetails(2012,"Music Night","22/01/2021","17:00-22:00","Google Meet Link","Visual welcome party for the new member. Performance by Senior member, Free for all member ",0.00);
+        eventList.push(e);
+      
+        e = new EventDetails(2013,"Visual Music Fiesta","23/04/2021","19:00-21:00","Google Meet Link","Visual music concert for for all member. Guest performer： xxx ",65.00);
+        eventList.push(e);
+        
+        e = new EventDetails(2014,"Music Sharing","26/03/2021","20:00","Google Meet Link","Music sharing between member. Member require to prepare song and share the story about the song in the event ",0.00);
+        eventList.push(e);
+    
+        e = new EventDetails(2015,"OO Night","25/05/2021","20:00-22:00","Google Meet Link","Welcome party for new intake student. Only allow new intake student to join the party",25.00);
+        eventList.push(e);
+        
+       
+        
+        
+        
+        menu();
         
         
       
@@ -171,7 +185,7 @@ public EventDetails details;
     public static void update(){
         
         
-         int no,insert;
+         int no,insert,choose;
         String title,time,loc,desc,date,news;
         double fee;
 //        char choose;
@@ -185,7 +199,7 @@ public EventDetails details;
         Scanner getDate = new Scanner(System.in);
         Scanner getFee = new Scanner(System.in);
          Scanner input = new Scanner(System.in);
-      
+      Scanner select = new Scanner(System.in);
   
 //         for(int i=0; i < eventList.EventTotal(); i++){
 ////            if(news.equals(eventList.get(i).getTitle())){
@@ -203,29 +217,105 @@ public EventDetails details;
 //              System.out.println(eventList.getEntry(i).getEventNo());
               //catch user input
             if(eventList.getEntry(i).getEventNo() == insert){
-               
+              
                 System.out.println("1.Event No : " + eventList.getEntry(i).getEventNo());
                 System.out.println("...........");
-                System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
+                
+                System.out.println("Please select information to update");
+                System.out.println("1. Event Title");
+                System.out.println("2. Event Date");
+                System.out.println("3. Event Time");
+                System.out.println("4. Location");
+                System.out.println("5. Event Description");
+                System.out.println("6. Fees");
+                System.out.println("7. Update Event List");
+                System.out.println("------------------");
+                choose = select.nextInt();
+           
+                
+                
+                
+                if(choose == 1){
+                     System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
                 System.out.println("..............");
                 title = getTitle.nextLine();
                 eventList.getEntry(i).setTitle(title);
+                
+                 
+                System.out.println("Update successfully");
+                System.out.println("=================================");
+                }else if(choose == 2){
+                     System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
+                System.out.println("..............");
+                date = getDate.nextLine();
+                eventList.getEntry(i).setDate(date);
+                
+                 
+                System.out.println("Update successfully");
+                System.out.println("=================================");
+                }else if(choose == 3){
+                    System.out.println("4. Event Time : "+ eventList.getEntry(i).getTime());
+                System.out.println("..............");
+                time = getTime.next();
+                eventList.getEntry(i).setTime(time);
+                
+                 
+                System.out.println("Update successfully");
+                System.out.println("=================================");
+                }else if(choose == 4){
+                      System.out.println("5. Location : "+ eventList.getEntry(i).getLocation());
+                System.out.println("............");
+                loc = getLoc.nextLine();
+                eventList.getEntry(i).setLocation(loc);
+                
+                 
+                System.out.println("Update successfully");
+                System.out.println("=================================");
+                }
+                
+                else if(choose == 5){
+                                   System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
+                System.out.println(".....................");
+                desc = getDesc.nextLine();
+                eventList.getEntry(i).setDescription(desc);
 
+                 
+                System.out.println("Update successfully");
+                System.out.println("=================================");
+                }
+                else if(choose == 6){
+                System.out.println("7. Fees " + eventList.getEntry(i).getFees());
+                fee= getFee.nextDouble();
+                eventList.getEntry(i).setFees(fee);
+                 
+                System.out.println("Update successfully");
+                System.out.println("=================================");
+                }
+                else if(choose == 7){
+                       System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
+                System.out.println("..............");
+                title = getTitle.nextLine();
+                eventList.getEntry(i).setTitle(title);
+                
+               
                 System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
                 System.out.println("..............");
                 date = getDate.nextLine();
                 eventList.getEntry(i).setDate(date);
-
+                
+     
                 System.out.println("4. Event Time : "+ eventList.getEntry(i).getTime());
                 System.out.println("..............");
                 time = getTime.next();
                 eventList.getEntry(i).setTime(time);
-
+                
+                
                 System.out.println("5. Location : "+ eventList.getEntry(i).getLocation());
                 System.out.println("............");
                 loc = getLoc.nextLine();
                 eventList.getEntry(i).setLocation(loc);
-
+                
+               
                 System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
                 System.out.println(".....................");
                 desc = getDesc.nextLine();
@@ -234,8 +324,15 @@ public EventDetails details;
                 System.out.println("7. Fees " + eventList.getEntry(i).getFees());
                 fee= getFee.nextDouble();
                 eventList.getEntry(i).setFees(fee);
+                 
                 System.out.println("Update successfully");
                 System.out.println("=================================");
+                }
+                
+                else {
+                    display();
+                }
+               
                 check = true;
                 break;
             }
