@@ -20,15 +20,15 @@ public class EventDetails {
     private String location;
     private String description;
     private double fees;
-    private static int nextEventNo = 2016;
+    private static int nextEventNo = 2008;
  private int eno;
 
     public EventDetails(int eventNo, String title, String date, String time, String location, String description, double fees) {
 //       int eNo = Integer.parseInt((nextEventNo));
 //       eNo++;
 //      countEventNo++;
-//      eno = nextEventNo;
-//      nextEventNo++;
+      eno = nextEventNo;
+      nextEventNo++;
     
       
         this.eventNo = eventNo;
@@ -42,9 +42,9 @@ public class EventDetails {
  
  
  
-//public  String toString1(){
-//       return String.format("%15d",eno)+eventNo;
-//   }
+public  String toString1(){
+       return String.format("%15d",eno)+eventNo;
+   }
 
     public static int getNextEventNo() {
         return nextEventNo;

@@ -22,14 +22,14 @@ public EventDetails details;
     
   public static void main(String []args){
              
-        EventDetails e = new EventDetails(2008,"Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
+        EventDetails e = new EventDetails(2001,"Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
         eventList.push(e);
         
 //       
-        e = new EventDetails(2009,"Singing Lession","19/11/2020","20:00-21:00","Google Meet Link","Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ",100.00);
+        e = new EventDetails(2002,"Singing Lession","19/11/2020","20:00-21:00","Google Meet Link","Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ",100.00);
         eventList.push(e);
         
-        e = new EventDetails(2010,"Advance Guitar Lesson","24/11/2020","18:00-19:00","Google Meet Link","Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)",100.00);
+        e = new EventDetails(2003,"Advance Guitar Lesson","24/11/2020","18:00-19:00","Google Meet Link","Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)",100.00);
         eventList.push(e);
         
         e = new EventDetails(2011,"Guitar Lesson","24/11/2020","19:30-20:30","Google Meet Link","Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)",100.00);
