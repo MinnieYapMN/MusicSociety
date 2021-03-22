@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class EventLinkedStack<T> implements EventLinkedStackInterface<T> {
 
-    private int eList;
+    private int eList = 0;
     private Node topNode;
 
     EventLinkedStackInterface<EventDetails> eventList;
@@ -71,6 +71,8 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T> {
         if (topNode != null) {
             returnNode = topNode;
 
+        }else{
+          returnNode = null;
         }
 
         return (T) returnNode.data;
@@ -98,25 +100,27 @@ public class EventLinkedStack<T> implements EventLinkedStackInterface<T> {
     }
 
     @Override
-    public void display() {
+//    public void display() {
+//
+//        Node current = this.topNode;
+//        String result = "";
+//       if (current != null) {
+//            System.out.println("Music Society Event List Details");
+//            System.out.println("................................");
+//            for (int i = 0; i < eList. i++) {
+//               // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+//                System.out.println("No" + " " + EventDetails.getEventTotal(i).getEventNO());
+//                current = current.next;
+//            }
+//       } else {
+//            System.out.println("No record");
+//
+//       }
+//
+//
+//    }
 
-        Node current = this.topNode;
-        String result = "";
-        if (current != null) {
-            System.out.println("Music Society Event List Details");
-            System.out.println("................................");
-            for (int i = 0; i < eList; i++) {
-                System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                current = current.next;
-            }
-        } else {
-            System.out.println("No record");
 
-        }
-
-    }
-
-    @Override
     public T getEntry(int a) {
         T result = null;
 

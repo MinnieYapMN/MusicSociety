@@ -66,36 +66,49 @@ public class MusicSociety {
         n = new Member("20WMR08931", "Qian Ying", "0182245698", "qiany@gmail.com", "05/04/2000");
         memberList.add(n);
 
-        EventDetails e = new EventDetails(2000, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
+//        EventDetails e = new EventDetails(2000, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
+//        eventList.push(e);
+//        e = new EventDetails(2001, "Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
+//        eventList.push(e);
+//        e = new EventDetails(2002, "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00);
+//        eventList.push(e);
+//        e = new EventDetails(2003, "Guitar Lesson", "24/11/2020", "19:30-20:30", "Google Meet Link", "Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)", 100.00);
+//        eventList.push(e);
+//        e = new EventDetails(2004, "Music Night", "22/01/2021", "17:00-22:00", "Google Meet Link", "Visual welcome party for the new member. Performance by Senior member, Free for all member ", 0.00);
+//        eventList.push(e);
+//        e = new EventDetails(2005, "Visual Music Fiesta", "23/04/2021", "19:00-21:00", "Google Meet Link", "Visual music concert for for all member. Guest performer： xxx ", 65.00);
+//        eventList.push(e);
+//        e = new EventDetails(2006, "Music Sharing", "26/03/2021", "20:00", "Google Meet Link", "Music sharing between member. Member require to prepare song and share the story about the song in the event ", 0.00);
+//        eventList.push(e);
+//        e = new EventDetails(2007, "OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
+//        eventList.push(e);
+
+ EventDetails e = new EventDetails("Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
         eventList.push(e);
-        e = new EventDetails(2001, "Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
+        
+//       
+        e = new EventDetails("Singing Lession","19/11/2020","20:00-21:00","Google Meet Link","Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ",100.00);
         eventList.push(e);
-        e = new EventDetails(2002, "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00);
+        
+        e = new EventDetails("Advance Guitar Lesson","24/11/2020","18:00-19:00","Google Meet Link","Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)",100.00);
         eventList.push(e);
-        e = new EventDetails(2003, "Guitar Lesson", "24/11/2020", "19:30-20:30", "Google Meet Link", "Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)", 100.00);
+        
+        e = new EventDetails("Guitar Lesson","24/11/2020","19:30-20:30","Google Meet Link","Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)",100.00);
         eventList.push(e);
-        e = new EventDetails(2004, "Music Night", "22/01/2021", "17:00-22:00", "Google Meet Link", "Visual welcome party for the new member. Performance by Senior member, Free for all member ", 0.00);
+        
+        e = new EventDetails("Music Night","22/01/2021","17:00-22:00","Google Meet Link","Visual welcome party for the new member. Performance by Senior member, Free for all member ",0.00);
         eventList.push(e);
-        e = new EventDetails(2005, "Visual Music Fiesta", "23/04/2021", "19:00-21:00", "Google Meet Link", "Visual music concert for for all member. Guest performer： xxx ", 65.00);
+      
+        e = new EventDetails("Visual Music Fiesta","23/04/2021","19:00-21:00","Google Meet Link","Visual music concert for for all member. Guest performer： xxx ",65.00);
         eventList.push(e);
-        e = new EventDetails(2006, "Music Sharing", "26/03/2021", "20:00", "Google Meet Link", "Music sharing between member. Member require to prepare song and share the story about the song in the event ", 0.00);
+        
+        e = new EventDetails("Music Sharing","26/03/2021","20:00","Google Meet Link","Music sharing between member. Member require to prepare song and share the story about the song in the event ",0.00);
         eventList.push(e);
-        e = new EventDetails(2007, "OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
+    
+        e = new EventDetails("OO Night","25/05/2021","20:00-22:00","Google Meet Link","Welcome party for new intake student. Only allow new intake student to join the party",25.00);
         eventList.push(e);
 
-//        EventDetails e = new EventDetails(2000,"Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
-//        eventList.push(e);
-//        
-////        e= new EventDetails(2212,"Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
-////        eventList.push(e);
-//        e = new EventDetails(2001,"Music stadium","23/12/2021","8:00-17:00","Main Hall","Please show ur id card to entry the hall",25.00);
-//        eventList.push(e);
-//         e = new EventDetails(2002,"OO Night","20/05/2021","20:00-22:00","Main Hall","Please show ur id card to entry the hall",15.00);
-//        eventList.push(e);
-//          e = new EventDetails(2003,"Music Concert","20/04/2021","20:00-22:00","Sport Complex","Please enter the hall early 15 minutes ",25.00);
-//        eventList.push(e);
-//          e = new EventDetails(2004,"Music Night","22/05/2021","20:00-22:00","Main Hall","Please show ur id card to entry the hall",30.00);
-//        eventList.push(e);
+
 
 //        EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<>();
 //        EventLinkedStackInterface<EventDetails> eventDList1 = new EventLinkedStack<>();
@@ -107,10 +120,14 @@ public class MusicSociety {
         memList.add(memberList.get(1));
         memList1.add(memberList.get(2));
         memList2.add(memberList.get(3));
+//        
+//        eventDList1.push(new EventDetails( "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
+//        eventDList2.push(new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00));
+//        eventDList.push(new EventDetails( "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00));
         
-        eventDList1.push(new EventDetails(2001, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
-        eventDList2.push(new EventDetails(2002, "Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00));
-        eventDList.push(new EventDetails(2003, "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00));
+//        eventDList1.push(new EventDetails(2001, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
+//        eventDList2.push(new EventDetails(2002, "Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00));
+//        eventDList.push(new EventDetails(2003, "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00));
 //         eventDList.push(new EventDetails(2011,"Guitar Lesson","24/11/2020","19:30-20:30","Google Meet Link","Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)",100.00));
 //         eventDList.push(new EventDetails(2012,"Music Night","22/01/2021","17:00-22:00","Google Meet Link","Visual welcome party for the new member. Performance by Senior member, Free for all member ",0.00));
 //         eventDList.push(new EventDetails(2013,"Visual Music Fiesta","23/04/2021","19:00-21:00","Google Meet Link","Visual music concert for for all member. Guest performer： xxx ",65.00));
@@ -120,12 +137,12 @@ public class MusicSociety {
 //        eventDList1.push(new EventDetails(2777, "OO Night", "20/05/2021", "20:00-22:00", "Main Hall", "Please show ur id card to entry the hall", 15.00));
 //        eventDList2.push(new EventDetails(2312, "Music stadium", "23/12/2021", "8:00-17:00", "Main Hall", "Please show ur id card to entry the hall", 25.00));
 
-        memberEvent.add(new Event("0001", "Confirmed", eventDList, memList));
-        memberEvent.add(new Event("0002", "Confirmed", eventDList2, memList1));
-        memberEvent.add(new Event("0003", "Confirmed", eventDList, memList));
-        memberEvent.add(new Event("0004", "Confirmed", eventDList1, memList2));
-        memberEvent.add(new Event("0005", "Confirmed", eventDList2, memList));
-        memberEvent.add(new Event("0006", "Confirmed", eventDList1, memList1));
+        memberEvent.add(new Event("0001", "Confirmed", eventList, memList));
+        memberEvent.add(new Event("0002", "Confirmed", eventList, memList1));
+        memberEvent.add(new Event("0003", "Confirmed", eventList, memList));
+        memberEvent.add(new Event("0004", "Confirmed", eventList, memList2));
+        memberEvent.add(new Event("0005", "Confirmed", eventList, memList));
+        memberEvent.add(new Event("0006", "Confirmed", eventList, memList1));
 
     }
 
@@ -543,8 +560,13 @@ public class MusicSociety {
                 System.out.println(" ============================================");
                 System.out.println(" ++             Events                      ++");
                 System.out.println(" ===========================================\n");
-                eventList.display();
-
+                  for (int i = 1; i < eventList.EventTotal();i++) {
+                // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() +" " +eventList.getEntry(i).getTitle()  );
+//                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
+              
+            }
+//    display();
                 cont = 'n';
                 int eventNo;
                 int arrayNo = -1;
@@ -668,8 +690,8 @@ public class MusicSociety {
 
     }
 
-    public void menu() {
-        int menu = -1;
+    public  void menu() {
+        int menu;
         Scanner sNo = new Scanner(System.in);
 
         do {
@@ -682,6 +704,7 @@ public class MusicSociety {
             System.out.println("5. .  Clear all Event List      .");
             System.out.println("6. .  Remove latest List      .");
             System.out.println("0. .  Exit program .");
+
             System.out.println(".....................................");
 
             menu = sNo.nextInt();
@@ -705,8 +728,7 @@ public class MusicSociety {
                     Remove();
                     break;
                 case 0:
-                    registerEventMenu();
-                    break;
+                   registerEventMenu();
                 default:
                     System.out.println("Invalid selection");
             }
@@ -731,15 +753,21 @@ public class MusicSociety {
         Scanner getDate = new Scanner(System.in);
         Scanner getFee = new Scanner(System.in);
 
-        System.out.println("The latest event is " + eventList.peek());
-
+//        if(eventList != null){
+//        }else{
+//          System.out.println("...");
+//        }
+//     
         do {
 
             System.out.println("===== Add New Event =====");
 //        System.out.println("1. Event NO " );
-            System.out.println("1. Event NO " + EventDetails.getNextEventNo());
+//        System.out.println("1. Event NO " );
+            System.out.println("1. Event NO " + EventDetails.getNewEventNo());
             System.out.println("...............");
-            no = EventDetails.getNextEventNo();
+            no = EventDetails.getNewEventNo();
+//        System.out.println("...............");
+//        no = eNo.nextInt();
 
             System.out.println("2. Event Title ");
             System.out.println("...............");
@@ -766,7 +794,7 @@ public class MusicSociety {
             fee = getFee.nextDouble();
 
             // push stack
-            EventDetails event = new EventDetails(no, title, date, time, loc, desc, fee);
+            EventDetails event = new EventDetails(title, date, time, loc, desc, fee);
             eventList.push(event);
 
             System.out.println("Do you want add new details again? [Y|N]");
@@ -811,6 +839,7 @@ public class MusicSociety {
 //         for(int i=0; i < eventList.EventTotal(); i++){
 ////            if(news.equals(eventList.get(i).getTitle())){
 //             if(insert  == eventList.get(i).getEventNo()){
+        System.out.println("The latest event is " + eventList.peek());
         System.out.println("============= Update current Event =============");
         System.out.println("Please insert the Event title to update details ");
         insert = input.nextInt();
@@ -939,7 +968,7 @@ public class MusicSociety {
 //            System.out.println("Do you want to continue update ? ");
 //             choose = Character.toUpperCase(slc.next().charAt(0));
 //    }while( choose =='Y');
-    public void Remove() {
+    public  void Remove() {
 
         System.out.println("Remove the latest details");
         eventList.pop();
@@ -977,7 +1006,7 @@ public class MusicSociety {
 
                 System.out.println("7. Fees " + eventList.getEntry(i).getFees());
                 fin = true;
-//                break;
+                break;
             }
 
         }
@@ -994,7 +1023,14 @@ public class MusicSociety {
         int back;
         Scanner menu = new Scanner(System.in);
         do {
-            eventList.display();
+     
+            for (int i = 1; i < eventList.EventTotal();i++) {
+                // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() +" " +eventList.getEntry(i).getTitle()  );
+//                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
+              
+            }
+//      eventList.display();
 
             System.out.println("Please press 0 to go back menu");
 
@@ -1003,5 +1039,4 @@ public class MusicSociety {
         } while (back == 0);
 
     }
-
 }

@@ -106,7 +106,12 @@ public class RegisterEvent {
                 System.out.println(" ============================================");
                 System.out.println(" ++             Events                      ++");
                 System.out.println(" ===========================================\n");
-                eventList.display();
+                for (int i = 1; i < eventList.EventTotal();i++) {
+                // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() +" " +eventList.getEntry(i).getTitle()  );
+//                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
+              
+            }
 
                 cont = 'n';
                 int eventNo;

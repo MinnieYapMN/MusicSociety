@@ -20,18 +20,10 @@ public class EventDetails {
     private String location;
     private String description;
     private double fees;
-    private static int nextEventNo = 2008;
- private int eno;
+    private static int nextEventNo  = 2000;
 
-    public EventDetails(int eventNo, String title, String date, String time, String location, String description, double fees) {
-//       int eNo = Integer.parseInt((nextEventNo));
-//       eNo++;
-//      countEventNo++;
-      eno = nextEventNo;
-      nextEventNo++;
-    
-      
-        this.eventNo = eventNo;
+    public EventDetails(String title, String date, String time, String location, String description, double fees) {
+        this.eventNo = generateNewEventNo();
         this.title = title;
         this.date = date;
         this.time = time;
@@ -39,17 +31,24 @@ public class EventDetails {
         this.description = description;
         this.fees = fees;
     }
- 
- 
- 
-public  String toString1(){
-       return String.format("%15d",eno)+eventNo;
-   }
 
-    public static int getNextEventNo() {
+    
+  private static int generateNewEventNo() {
+      int newEventNo = nextEventNo;
+      nextEventNo++;
+        return newEventNo;
+    }
+// 
+   public static int getNewEventNo() {
+    
         return nextEventNo;
     }
- 
+//public  String toString1(){
+//       return String.format("%15d",eventNo);
+//   }
+//
+//   
+// 
   
 
     public int getEventNo() {
@@ -109,10 +108,15 @@ public  String toString1(){
         this.fees = fees;
     }
 
+//    @Override
+//    public String toString() {
+//     return String.format("%-4s %-4s %-4s %-2s %-8s %-8s %-6s ",eventNo,title,date,time,location,description,fees);
+//                
+//    }
+
     @Override
     public String toString() {
-     return String.format("%-4s %-4s %-4s %-2s %-8s %-8s %-6s ",eventNo,title,date,time,location,description,fees);
-                
+        return "EventNo: " + eventNo + ", Title= " + title + ", Date= " + date + ", Time= " + time + ", Location= " + location + ", Description= " + description + ", Fees= " + fees ;
     }
 
 

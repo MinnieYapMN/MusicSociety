@@ -15,7 +15,7 @@ public interface EventLinkedStackInterface<T> {
 public void push (T newEntry); // add new details
 public T pop(); // remove the top event details
 public T peek();
-public void display(); // display all in stack
+//public void display(); // display all in stack
 public boolean isEmpty();
 public void clear(); // clear all daata
  public int EventTotal(); // total in listt
