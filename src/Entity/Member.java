@@ -11,8 +11,6 @@ package Entity;
  * @author Ming Nee
  */
 public class Member {
-    //private String username;
-   // private String password;
     private String studentID;
     private String name;
     private String contactNo;
@@ -20,9 +18,7 @@ public class Member {
     private String birthdate;
   
 
-    public Member(/*String username, String password,*/ String studentID, String name, String contactNo, String email, String birthdate) {
-       // this.username = username;
-        //this.password = password;
+    public Member(String studentID, String name, String contactNo, String email, String birthdate) {
         this.studentID = studentID;
         this.name = name;
         this.contactNo = contactNo;
