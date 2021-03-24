@@ -9,7 +9,7 @@ import ADT.*;
 
 /**
  *
- * @author HP Pavilion
+ * @author Lim Fung Ann 20WMR08932
  */
 public class Event {
 

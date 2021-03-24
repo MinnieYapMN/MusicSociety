@@ -105,7 +105,8 @@ public class ArraySet<T> implements SetInterface<T> {
         return output;
     }
 
-    public SetInterface<T> union(EventLinkedStackInterface<T> set) {
+    @Override
+    public ArraySet<T> union(SetInterface<T> set) {
         ArraySet<T> both = new ArraySet<>();
 
         for (int index = 0; index < size; index++) {
@@ -126,7 +127,7 @@ public class ArraySet<T> implements SetInterface<T> {
         }
         return false;
     }
-    
+
     @Override
     public T getEntry(int index) {
         T result = null;
@@ -140,6 +141,10 @@ public class ArraySet<T> implements SetInterface<T> {
 
     public int getSize() {
         return size;
+    }
+
+    public void clear() {
+        size = 0;
     }
 
 }

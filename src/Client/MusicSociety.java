@@ -21,9 +21,6 @@ public class MusicSociety {
     public static MemberListInterface<Member> memberList = new MemberLinkedList();
     public static Admin admin = new Admin("admin", "admin", "1001", "6011-11932585", "admin@tarc.edu.my", "17/03/1999");
     public static EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<EventDetails>();
-    private EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<>();
-    private EventLinkedStackInterface<EventDetails> eventDList1 = new EventLinkedStack<>();
-    private EventLinkedStackInterface<EventDetails> eventDList2 = new EventLinkedStack<>();
 
     SetInterface<Event> memberEvent = new ArraySet<>();
 //    EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<>();
@@ -82,33 +79,30 @@ public class MusicSociety {
 //        eventList.push(e);
 //        e = new EventDetails(2007, "OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
 //        eventList.push(e);
-
- EventDetails e = new EventDetails("Music festival","22/12/2021","20:00-22:00","Live Stream","Please enter room early 10 mminutes",20.00);
+        EventDetails e = new EventDetails("Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
         eventList.push(e);
-        
+
 //       
-        e = new EventDetails("Singing Lession","19/11/2020","20:00-21:00","Google Meet Link","Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ",100.00);
-        eventList.push(e);
-        
-        e = new EventDetails("Advance Guitar Lesson","24/11/2020","18:00-19:00","Google Meet Link","Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)",100.00);
-        eventList.push(e);
-        
-        e = new EventDetails("Guitar Lesson","24/11/2020","19:30-20:30","Google Meet Link","Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)",100.00);
-        eventList.push(e);
-        
-        e = new EventDetails("Music Night","22/01/2021","17:00-22:00","Google Meet Link","Visual welcome party for the new member. Performance by Senior member, Free for all member ",0.00);
-        eventList.push(e);
-      
-        e = new EventDetails("Visual Music Fiesta","23/04/2021","19:00-21:00","Google Meet Link","Visual music concert for for all member. Guest performer： xxx ",65.00);
-        eventList.push(e);
-        
-        e = new EventDetails("Music Sharing","26/03/2021","20:00","Google Meet Link","Music sharing between member. Member require to prepare song and share the story about the song in the event ",0.00);
-        eventList.push(e);
-    
-        e = new EventDetails("OO Night","25/05/2021","20:00-22:00","Google Meet Link","Welcome party for new intake student. Only allow new intake student to join the party",25.00);
+        e = new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
         eventList.push(e);
 
+        e = new EventDetails("Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00);
+        eventList.push(e);
 
+        e = new EventDetails("Guitar Lesson", "24/11/2020", "19:30-20:30", "Google Meet Link", "Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)", 100.00);
+        eventList.push(e);
+
+        e = new EventDetails("Music Night", "22/01/2021", "17:00-22:00", "Google Meet Link", "Visual welcome party for the new member. Performance by Senior member, Free for all member ", 0.00);
+        eventList.push(e);
+
+        e = new EventDetails("Visual Music Fiesta", "23/04/2021", "19:00-21:00", "Google Meet Link", "Visual music concert for for all member. Guest performer： xxx ", 65.00);
+        eventList.push(e);
+
+        e = new EventDetails("Music Sharing", "26/03/2021", "20:00", "Google Meet Link", "Music sharing between member. Member require to prepare song and share the story about the song in the event ", 0.00);
+        eventList.push(e);
+
+        e = new EventDetails("OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
+        eventList.push(e);
 
 //        EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<>();
 //        EventLinkedStackInterface<EventDetails> eventDList1 = new EventLinkedStack<>();
@@ -116,7 +110,7 @@ public class MusicSociety {
         LinkListInterface<Member> memList = new LinkList();
         LinkListInterface<Member> memList1 = new LinkList();
         LinkListInterface<Member> memList2 = new LinkList();
-        
+
         memList.add(memberList.get(1));
         memList1.add(memberList.get(2));
         memList2.add(memberList.get(3));
@@ -124,18 +118,6 @@ public class MusicSociety {
 //        eventDList1.push(new EventDetails( "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
 //        eventDList2.push(new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00));
 //        eventDList.push(new EventDetails( "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00));
-        
-//        eventDList1.push(new EventDetails(2001, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
-//        eventDList2.push(new EventDetails(2002, "Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00));
-//        eventDList.push(new EventDetails(2003, "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00));
-//         eventDList.push(new EventDetails(2011,"Guitar Lesson","24/11/2020","19:30-20:30","Google Meet Link","Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)",100.00));
-//         eventDList.push(new EventDetails(2012,"Music Night","22/01/2021","17:00-22:00","Google Meet Link","Visual welcome party for the new member. Performance by Senior member, Free for all member ",0.00));
-//         eventDList.push(new EventDetails(2013,"Visual Music Fiesta","23/04/2021","19:00-21:00","Google Meet Link","Visual music concert for for all member. Guest performer： xxx ",65.00));
-//         eventDList.push(new EventDetails(2014,"Music Sharing","26/03/2021","20:00","Google Meet Link","Music sharing between member. Member require to prepare song and share the story about the song in the event ",0.00));
-//         eventDList.push(new EventDetails(2015,"OO Night","25/05/2021","20:00-22:00","Google Meet Link","Welcome party for new intake student. Only allow new intake student to join the party",25.00));
-//         eventDList.push(new EventDetails(2212, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
-//        eventDList1.push(new EventDetails(2777, "OO Night", "20/05/2021", "20:00-22:00", "Main Hall", "Please show ur id card to entry the hall", 15.00));
-//        eventDList2.push(new EventDetails(2312, "Music stadium", "23/12/2021", "8:00-17:00", "Main Hall", "Please show ur id card to entry the hall", 25.00));
 
         memberEvent.add(new Event("0001", "Confirmed", eventList, memList));
         memberEvent.add(new Event("0002", "Confirmed", eventList, memList1));
@@ -484,7 +466,8 @@ public class MusicSociety {
             System.out.println("|         [2] Cancel Register              |");
             System.out.println("|         [3] Member Registration List     |");
             System.out.println("|         [4] Search Event List            |");
-            System.out.println("|         [5] Event Maintainence           |");
+            System.out.println("|         [5] Clear all Registration List  |");
+            System.out.println("|         [6] Event Maintainence           |");
             System.out.println("|         [0] Exit to Homepage             |");
             System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
             System.out.print(" Please enter a number => ");
@@ -505,6 +488,9 @@ public class MusicSociety {
                         searchRegisterMember();
                         break;
                     case 5:
+                        clearRegisList();
+                        break;
+                    case 6:
                         menu();
                         break;
                     case 0:
@@ -560,12 +546,12 @@ public class MusicSociety {
                 System.out.println(" ============================================");
                 System.out.println(" ++             Events                      ++");
                 System.out.println(" ===========================================\n");
-                  for (int i = 1; i < eventList.EventTotal();i++) {
-                // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() +" " +eventList.getEntry(i).getTitle()  );
+                for (int i = 1; i < eventList.EventTotal(); i++) {
+                    // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+                    System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle());
 //                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
-              
-            }
+
+                }
 //    display();
                 cont = 'n';
                 int eventNo;
@@ -624,6 +610,10 @@ public class MusicSociety {
         System.out.println("===============      ===========  =========  =========");
 
         System.out.println(memberEvent.toString());
+        
+        if (memberEvent.isEmpty()) {
+            System.out.println("No record found...");
+        }
     }
 
     public void cancelRegister() {
@@ -690,7 +680,27 @@ public class MusicSociety {
 
     }
 
-    public  void menu() {
+    public void clearRegisList() {
+        char ans;
+        Scanner scanner = new Scanner(System.in);
+        ans = 'n';
+        System.out.println("Are you sure want to clear all the record ?");
+        System.out.println("Answer [Y=yes, N=no]:");
+        ans = Character.toUpperCase(scanner.next().charAt(0));
+        if (ans != 'Y' && ans != 'N') {
+            System.out.println("\n Invalid Input, please enter 'Y' or 'N'");
+        }
+        if (ans == 'N') {
+            registerEventMenu();
+        } else {
+            memberEvent.clear();
+            System.out.println("The record had been cleared.");
+            registerEventMenu();
+        }
+
+    }
+
+    public void menu() {
         int menu;
         Scanner sNo = new Scanner(System.in);
 
@@ -728,7 +738,7 @@ public class MusicSociety {
                     Remove();
                     break;
                 case 0:
-                   registerEventMenu();
+                    registerEventMenu();
                 default:
                     System.out.println("Invalid selection");
             }
@@ -968,7 +978,7 @@ public class MusicSociety {
 //            System.out.println("Do you want to continue update ? ");
 //             choose = Character.toUpperCase(slc.next().charAt(0));
 //    }while( choose =='Y');
-    public  void Remove() {
+    public void Remove() {
 
         System.out.println("Remove the latest details");
         eventList.pop();
@@ -1023,12 +1033,12 @@ public class MusicSociety {
         int back;
         Scanner menu = new Scanner(System.in);
         do {
-     
-            for (int i = 1; i < eventList.EventTotal();i++) {
+
+            for (int i = 1; i < eventList.EventTotal(); i++) {
                 // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() +" " +eventList.getEntry(i).getTitle()  );
+                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle());
 //                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
-              
+
             }
 //      eventList.display();
 

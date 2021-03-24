@@ -21,12 +21,14 @@ public interface SetInterface<T> {
 
     public String toString();
 
-    public SetInterface<T> union(EventLinkedStackInterface<T> set);
+    public ArraySet<T> union(SetInterface<T> set);
 
     public boolean contains(T target);
 
     public T getEntry(int index);
 
     public int getSize();
+    
+    public void clear();
 
 }
