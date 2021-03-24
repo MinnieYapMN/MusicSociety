@@ -874,16 +874,22 @@ public class MusicSociety {
     public void clear() {
         char ans;
         Scanner anss = new Scanner(System.in);
-
+         if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
         System.out.println("Are you sure want to clear all the list?");
         ans = Character.toUpperCase(anss.next().charAt(0));
 
-        do {
+        if(ans == 'Y' || ans == 'y'){
             eventList.clear();
-
             menu();
-        } while (ans == 'Y');
-
+        }else{
+              System.out.println("Remain all information");
+            menu();
+        }
+       
+         }
     }
 
     public void update() {
@@ -903,10 +909,12 @@ public class MusicSociety {
         Scanner getFee = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
         Scanner select = new Scanner(System.in);
-
-//         for(int i=0; i < eventList.EventTotal(); i++){
-////            if(news.equals(eventList.get(i).getTitle())){
-//             if(insert  == eventList.get(i).getEventNo()){
+ 
+        
+        if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
         System.out.println("The latest event is " + eventList.peek());
         System.out.println("============= Update current Event =============");
         System.out.println("Please insert the Event title to update details ");
@@ -1029,6 +1037,7 @@ public class MusicSociety {
 //            System.out.println(eventList.getEntry(insert));
         display();
     }
+    }
 
     //new list 
 //         System.out.println(eventList);
@@ -1037,17 +1046,28 @@ public class MusicSociety {
 //             choose = Character.toUpperCase(slc.next().charAt(0));
 //    }while( choose =='Y');
     public void Remove() {
-
+ if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
         System.out.println("Remove the latest details");
         eventList.pop();
         menu();
-//      
+      }
     }
 
     public void search() {
         int find;
         Scanner search = new Scanner(System.in);
 //        
+
+        if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
+            
+            
+       
         System.out.println("Please enter the Event no ");
         find = search.nextInt();
 
@@ -1085,16 +1105,22 @@ public class MusicSociety {
 //            System.out.println(eventList.getEntry(find));
         menu();
     }
-
+    }
 //    }
     public void display() {
         int back;
         Scanner menu = new Scanner(System.in);
+       if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
+        
         do {
 
             for (int i = 1; i < eventList.EventTotal(); i++) {
                 // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle());
+                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()+ " " + eventList.getEntry(i).getDate()+ " " + eventList.getEntry(i).getTime()
+                + " " + eventList.getEntry(i).getLocation()+ " " + eventList.getEntry(i).getDescription() + " " + eventList.getEntry(i).getFees());
 //                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
 
             }
@@ -1106,5 +1132,6 @@ public class MusicSociety {
             menu();
         } while (back == 0);
 
+    }
     }
 }
