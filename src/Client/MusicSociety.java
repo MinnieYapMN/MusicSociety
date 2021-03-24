@@ -485,7 +485,7 @@ public class MusicSociety {
                         displayregisterList();
                         break;
                     case 4:
-                        searchRegisterMember();
+                        searchMenu();
                         break;
                     case 5:
                         clearRegisList();
@@ -610,7 +610,7 @@ public class MusicSociety {
         System.out.println("===============      ===========  =========  =========");
 
         System.out.println(memberEvent.toString());
-        
+
         if (memberEvent.isEmpty()) {
             System.out.println("No record found...");
         }
@@ -642,6 +642,27 @@ public class MusicSociety {
 
     }
 
+    public void searchMenu() {
+        Scanner key = new Scanner(System.in);
+        System.out.println("Please choose who you want to search?");
+        System.out.println("[1]. Register No");
+        System.out.println("[2]. Event No");
+        System.out.print("Enter the choice (1/2): ");
+        int k = key.nextInt();
+
+        switch (k) {
+            case 1:
+                searchRegisterMember();
+                break;
+            case 2:
+                searchEventNo();
+                break;
+            default:
+                System.out.println("Error: only number input is acceptable.");
+                break;
+        }
+    }
+
     public void searchRegisterMember() {
 
         Scanner scanner = new Scanner(System.in);
@@ -667,6 +688,43 @@ public class MusicSociety {
             if (check == false) {
                 System.out.println("");
                 System.out.println("The register No may invalid or removed ! Please re-enter again...");
+            }
+
+            System.out.println("\n[1] Search again");
+            System.out.println("[Any key] Exit to the Event Menu");
+            System.out.print("Your option => ");
+            String option = scanner.nextLine();
+            if (!option.equals("1")) {
+                registerEventMenu();
+            }
+        } while (check != true);
+
+    }
+
+    public void searchEventNo() {
+
+        Scanner scanner = new Scanner(System.in);
+        boolean check = false;
+
+        do {
+
+            Scanner regisN = new Scanner(System.in);
+            System.out.println("Please enter the Event No :");
+            int eventNo = regisN.nextInt();
+            System.out.printf("%-20s %-12s %-10s %-10s\n", "Registration No", "Student ID", "Event No", "Status");
+            System.out.println("===============      ===========  =========  =========");
+
+            for (int i = 0; i < memberEvent.getSize(); i++) {
+                if (memberEvent.getEntry(i).getEventNo() == eventNo) {
+                    check = true;
+                    System.out.println(memberEvent.getEntry(i).toString());
+                } else {
+                    check = false;
+                }
+            }
+            if (check == false) {
+                System.out.println("");
+                System.out.println("The Event No may invalid or removed ! Please re-enter again...");
             }
 
             System.out.println("\n[1] Search again");
