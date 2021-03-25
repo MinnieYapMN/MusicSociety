@@ -33,7 +33,7 @@ public class Event {
         this.regisNo = new String(String.format("%04d", num));
         nextregisterNo = new String(String.format("%04d", num));
     }
-
+    
     public Event(String status, EventLinkedStackInterface<EventDetails> EventD, LinkListInterface<Member> member) {
         int num = Integer.parseInt(nextregisterNo);
         num++;
