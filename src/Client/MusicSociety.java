@@ -169,7 +169,7 @@ public class MusicSociety {
             }
         } catch (Exception e) {
             System.out.println("**Invalid Input! Please Re-enter Again!**\n");
-            scanner.next();
+            firstPage();
         }
 
     }
@@ -235,7 +235,7 @@ public class MusicSociety {
             System.out.println("|     Please choose your selection ><  |");
             System.out.println("|         [1] Member                   |");
             System.out.println("|         [2] Event                    |");
-            System.out.println("|         [0] Exit                     |");
+            System.out.println("|         [3] Back To Login Page       |");
             System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
             System.out.print("Please enter a number => ");
 
@@ -249,11 +249,9 @@ public class MusicSociety {
                     case 2:
                         registerEventMenu();
                         break;
-                    case 0:
-                        System.out.println("\n=====================================");
-                        System.out.println("    HAVE A NICE DAY! BYE-BYE >.<");
-                        System.out.println("=====================================");
-                        System.exit(0);
+                    case 3:
+                       firstPage();
+                        break;
                     default:
                         System.out.println("**Please enter available options!**\n");
                 }
