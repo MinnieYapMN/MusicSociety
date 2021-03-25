@@ -17,7 +17,6 @@ public class Event {
     private LinkListInterface<Member> member;
     private String status;
     private String regisNo;
-    private String annou;
     private static String nextregisterNo = "000";
     private static int countRegister = 0;
 
@@ -44,18 +43,6 @@ public class Event {
         this.status = status;
         regisNo = new String(String.format("%04d", num));
         nextregisterNo = new String(String.format("%04d", num));
-    }
-
-    public Event(String annou) {
-        this.annou = annou;
-    }
-
-    public String getAnnou() {
-        return annou;
-    }
-
-    public void setAnnou(String annou) {
-        this.annou = annou;
     }
 
     public EventLinkedStackInterface<EventDetails> getEventD() {

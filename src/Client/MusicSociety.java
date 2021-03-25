@@ -23,13 +23,11 @@ public class MusicSociety {
     public static EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<EventDetails>();
 
     SetInterface<Event> memberEvent = new ArraySet<>();
-//    EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<>();
-//    MemberListInterface<Member> memberList = new MemberLinkedList();
-//    LinkListInterface<Member> memberList;
+
     LinkListInterface<Admin> adminList;
 
     public void initialize() throws ParseException {
-//        memberList = new LinkList();
+
         Member n = new Member("20WMR08981", "Ming Nee", "0123456789", "minnie@gmail.com", "30/7/1999");
         memberList.add(n);
         n = new Member("20WMR08928", "Tzu Wey", "0124455667", "ren@gmail.com", "12/12/2000");
@@ -63,26 +61,9 @@ public class MusicSociety {
         n = new Member("20WMR08931", "Qian Ying", "0182245698", "qiany@gmail.com", "05/04/2000");
         memberList.add(n);
 
-//        EventDetails e = new EventDetails(2000, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
-//        eventList.push(e);
-//        e = new EventDetails(2001, "Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
-//        eventList.push(e);
-//        e = new EventDetails(2002, "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00);
-//        eventList.push(e);
-//        e = new EventDetails(2003, "Guitar Lesson", "24/11/2020", "19:30-20:30", "Google Meet Link", "Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)", 100.00);
-//        eventList.push(e);
-//        e = new EventDetails(2004, "Music Night", "22/01/2021", "17:00-22:00", "Google Meet Link", "Visual welcome party for the new member. Performance by Senior member, Free for all member ", 0.00);
-//        eventList.push(e);
-//        e = new EventDetails(2005, "Visual Music Fiesta", "23/04/2021", "19:00-21:00", "Google Meet Link", "Visual music concert for for all member. Guest performer： xxx ", 65.00);
-//        eventList.push(e);
-//        e = new EventDetails(2006, "Music Sharing", "26/03/2021", "20:00", "Google Meet Link", "Music sharing between member. Member require to prepare song and share the story about the song in the event ", 0.00);
-//        eventList.push(e);
-//        e = new EventDetails(2007, "OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
-//        eventList.push(e);
         EventDetails e = new EventDetails("Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
         eventList.push(e);
-
-//       
+     
         e = new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
         eventList.push(e);
 
@@ -104,9 +85,6 @@ public class MusicSociety {
         e = new EventDetails("OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
         eventList.push(e);
 
-//        EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<>();
-//        EventLinkedStackInterface<EventDetails> eventDList1 = new EventLinkedStack<>();
-//        EventLinkedStackInterface<EventDetails> eventDList2 = new EventLinkedStack<>();
         LinkListInterface<Member> memList = new LinkList();
         LinkListInterface<Member> memList1 = new LinkList();
         LinkListInterface<Member> memList2 = new LinkList();
@@ -114,10 +92,6 @@ public class MusicSociety {
         memList.add(memberList.get(1));
         memList1.add(memberList.get(2));
         memList2.add(memberList.get(3));
-//        
-//        eventDList1.push(new EventDetails( "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00));
-//        eventDList2.push(new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00));
-//        eventDList.push(new EventDetails( "Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00));
 
         memberEvent.add(new Event("0001", "Confirmed", eventList, memList));
         memberEvent.add(new Event("0002", "Confirmed", eventList, memList1));
