@@ -65,10 +65,10 @@ public class NewEvent {
 
     }
 
-    public static void menu() {
-        int menu;
-        Scanner sNo = new Scanner(System.in);
-
+     public static void menu() {
+        int menu = - 1;
+//        Scanner sNo = new Scanner(System.in);
+ Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("====================================");
             System.out.println("=======Event List Details============");
@@ -81,8 +81,8 @@ public class NewEvent {
             System.out.println("0. .  Exit program .");
 
             System.out.println(".....................................");
-
-            menu = sNo.nextInt();
+try{
+            menu = scanner.nextInt();
             switch (menu) {
                 case 1:
                     addNew();
@@ -103,12 +103,18 @@ public class NewEvent {
                     Remove();
                     break;
                 case 0:
-//                    MusicSociety();
+//                    registerEventMenu();
                 default:
                     System.out.println("Invalid selection");
             }
+           } catch (Exception ex) {
+                System.out.println("Loading ... \n");
+//                 menu = sNo.nextInt();
+                 scanner.next();
+            } 
+           
 
-        } while (menu != 7 || menu != 0);
+        } while ( menu != 0);
 
     }
 
@@ -169,8 +175,8 @@ public class NewEvent {
             fee = getFee.nextDouble();
 
             // push stack
-            EventDetails event = new EventDetails(title, date, time, loc, desc, fee);
-            eventList.push(event);
+            EventDetails e = new EventDetails(title, date, time, loc, desc, fee);
+            eventList.push(e);
 
             System.out.println("Do you want add new details again? [Y|N]");
             select = Character.toUpperCase(slc.next().charAt(0));
@@ -181,16 +187,22 @@ public class NewEvent {
     public static void clear() {
         char ans;
         Scanner anss = new Scanner(System.in);
-
+         if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
         System.out.println("Are you sure want to clear all the list?");
         ans = Character.toUpperCase(anss.next().charAt(0));
 
-        do {
+        if(ans == 'Y' || ans == 'y'){
             eventList.clear();
-
             menu();
-        } while (ans == 'Y');
-
+        }else{
+              System.out.println("Remain all information");
+            menu();
+        }
+       
+         }
     }
 
     public static void update() {
@@ -210,10 +222,12 @@ public class NewEvent {
         Scanner getFee = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
         Scanner select = new Scanner(System.in);
-
-//         for(int i=0; i < eventList.EventTotal(); i++){
-////            if(news.equals(eventList.get(i).getTitle())){
-//             if(insert  == eventList.get(i).getEventNo()){
+ 
+        
+        if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
         System.out.println("The latest event is " + eventList.peek());
         System.out.println("============= Update current Event =============");
         System.out.println("Please insert the Event title to update details ");
@@ -336,6 +350,7 @@ public class NewEvent {
 //            System.out.println(eventList.getEntry(insert));
         display();
     }
+    }
 
     //new list 
 //         System.out.println(eventList);
@@ -344,17 +359,28 @@ public class NewEvent {
 //             choose = Character.toUpperCase(slc.next().charAt(0));
 //    }while( choose =='Y');
     public static void Remove() {
-
+ if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
         System.out.println("Remove the latest details");
         eventList.pop();
         menu();
-//      
+      }
     }
 
     public static void search() {
         int find;
         Scanner search = new Scanner(System.in);
 //        
+
+        if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
+            
+            
+       
         System.out.println("Please enter the Event no ");
         find = search.nextInt();
 
@@ -392,26 +418,39 @@ public class NewEvent {
 //            System.out.println(eventList.getEntry(find));
         menu();
     }
-
+    }
 //    }
     public static void display() {
         int back;
         Scanner menu = new Scanner(System.in);
+       if(eventList.isEmpty()){
+            System.out.println("No record found");
+            menu();
+        }else{
+      
         do {
-     
-            for (int i = 1; i < eventList.EventTotal();i++) {
+            
+            for (int i = 1; i < eventList.EventTotal(); i++) {
                 // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() +" " +eventList.getEntry(i).getTitle()  );
-//                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
-              
-            }
-//      eventList.display();
-
+                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()
+                        + " " + eventList.getEntry(i).getDate()+ " " + eventList.getEntry(i).getTime()
+                + " " + eventList.getEntry(i).getLocation()+ " " + eventList.getEntry(i).getDescription()
+                        + " " + eventList.getEntry(i).getFees());
+  }              
             System.out.println("Please press 0 to go back menu");
 
             back = menu.nextInt();
             menu();
-        } while (back == 0);
+           
+         
+           
+        } while (back != 0);
+//        
 
+//if(!diss && eventList.isEmpty()){
+//                 System.out.println("No record found");
+//            }
+    }
+     
     }
 }

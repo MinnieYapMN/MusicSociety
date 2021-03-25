@@ -759,9 +759,9 @@ public class MusicSociety {
     }
 
     public void menu() {
-        int menu;
-        Scanner sNo = new Scanner(System.in);
-
+        int menu = - 1;
+//        Scanner sNo = new Scanner(System.in);
+ Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("====================================");
             System.out.println("=======Event List Details============");
@@ -774,8 +774,8 @@ public class MusicSociety {
             System.out.println("0. .  Exit program .");
 
             System.out.println(".....................................");
-
-            menu = sNo.nextInt();
+try{
+            menu = scanner.nextInt();
             switch (menu) {
                 case 1:
                     addNew();
@@ -800,8 +800,14 @@ public class MusicSociety {
                 default:
                     System.out.println("Invalid selection");
             }
+           } catch (Exception ex) {
+                System.out.println("Loading ... \n");
+//                 menu = sNo.nextInt();
+                 scanner.next();
+            } 
+           
 
-        } while (menu != 7 || menu != 0);
+        } while ( menu != 0);
 
     }
 
@@ -862,8 +868,8 @@ public class MusicSociety {
             fee = getFee.nextDouble();
 
             // push stack
-            EventDetails event = new EventDetails(title, date, time, loc, desc, fee);
-            eventList.push(event);
+            EventDetails e = new EventDetails(title, date, time, loc, desc, fee);
+            eventList.push(e);
 
             System.out.println("Do you want add new details again? [Y|N]");
             select = Character.toUpperCase(slc.next().charAt(0));
@@ -1114,24 +1120,30 @@ public class MusicSociety {
             System.out.println("No record found");
             menu();
         }else{
-        
+      
         do {
-
+            
             for (int i = 1; i < eventList.EventTotal(); i++) {
                 // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()+ " " + eventList.getEntry(i).getDate()+ " " + eventList.getEntry(i).getTime()
-                + " " + eventList.getEntry(i).getLocation()+ " " + eventList.getEntry(i).getDescription() + " " + eventList.getEntry(i).getFees());
-//                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
-
-            }
-//      eventList.display();
-
+                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()
+                        + " " + eventList.getEntry(i).getDate()+ " " + eventList.getEntry(i).getTime()
+                + " " + eventList.getEntry(i).getLocation()+ " " + eventList.getEntry(i).getDescription()
+                        + " " + eventList.getEntry(i).getFees());
+  }              
             System.out.println("Please press 0 to go back menu");
 
             back = menu.nextInt();
             menu();
-        } while (back == 0);
+           
+         
+           
+        } while (back != 0);
+//        
 
+//if(!diss && eventList.isEmpty()){
+//                 System.out.println("No record found");
+//            }
+    }
+     
     }
     }
-}

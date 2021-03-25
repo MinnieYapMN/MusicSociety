@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class EventLinkedStack<T> implements EventLinkedStackInterface<T> {
 
-    private int eList = 0;
+    private int eList =0;
     private Node topNode;
 
     EventLinkedStackInterface<EventDetails> eventList;

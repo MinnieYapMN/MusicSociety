@@ -43,13 +43,6 @@ public class EventDetails {
     
         return nextEventNo;
     }
-//public  String toString1(){
-//       return String.format("%15d",eventNo);
-//   }
-//
-//   
-// 
-  
 
     public int getEventNo() {
         return eventNo;
@@ -108,22 +101,26 @@ public class EventDetails {
         this.fees = fees;
     }
 
-//    @Override
+    @Override
+    public String toString() {
+        return + eventNo + " " + title + " " + date + " " + time + "  " + location + " " + description + " " + fees ;
+    }
+
+
+    //    @Override
 //    public String toString() {
 //     return String.format("%-4s %-4s %-4s %-2s %-8s %-8s %-6s ",eventNo,title,date,time,location,description,fees);
 //                
 //    }
-
-    @Override
-    public String toString() {
-        return "EventNo: " + eventNo + ", Title= " + title + ", Date= " + date + ", Time= " + time + ", Location= " + location + ", Description= " + description + ", Fees= " + fees ;
-    }
-
-
     
     
-    
-    
+    //public  String toString1(){
+//       return String.format("%15d",eventNo);
+//   }
+//
+//   
+// 
+  
     
     
     
