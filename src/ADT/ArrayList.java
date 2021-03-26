@@ -102,7 +102,7 @@ public class ArrayList<T> implements ListInterface<T> {
         System.out.println("============================================================================================================");
         for (int i = 0; i < size; i++) {
             //str += "[" + i + "]" + array[i].toString() + "\n";
-            str += "[" + i + "]" + "    " + array[i].toString() + "\n";
+            str += "[" + (i+1) + "]" + "    " + array[i].toString() + "\n";
            
         }
         return str;

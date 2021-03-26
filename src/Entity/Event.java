@@ -13,8 +13,8 @@ import ADT.*;
  */
 public class Event {
 
-    private EventLinkedStackInterface<EventDetails> EventD;
-    private LinkListInterface<Member> member;
+    private EventDetails EventD;
+    private Member member;
     private String status;
     private String regisNo;
     private static String nextregisterNo = "000";
@@ -23,7 +23,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(String regisNo, String status, EventLinkedStackInterface<EventDetails> EventD, LinkListInterface<Member> member) {
+    public Event(String regisNo, String status, EventDetails EventD, Member member) {
         int num = Integer.parseInt(nextregisterNo);
         num++;
         countRegister++;
@@ -34,7 +34,7 @@ public class Event {
         nextregisterNo = new String(String.format("%04d", num));
     }
     
-    public Event(String status, EventLinkedStackInterface<EventDetails> EventD, LinkListInterface<Member> member) {
+    public Event(String status, EventDetails EventD, Member member) {
         int num = Integer.parseInt(nextregisterNo);
         num++;
         countRegister++;
@@ -45,11 +45,11 @@ public class Event {
         nextregisterNo = new String(String.format("%04d", num));
     }
 
-    public EventLinkedStackInterface<EventDetails> getEventD() {
+    public EventDetails getEventD() {
         return EventD;
     }
 
-    public LinkListInterface<Member> getMember() {
+    public Member getMember() {
         return member;
     }
 
@@ -69,13 +69,15 @@ public class Event {
         this.regisNo = regisNo;
     }
 
-    public void setEventD(EventLinkedStackInterface<EventDetails> EventD) {
+    public void setEventD(EventDetails EventD) {
         this.EventD = EventD;
     }
 
-    public void setMember(LinkListInterface<Member> member) {
+    public void setMember(Member member) {
         this.member = member;
     }
+
+    
 
     public static String getNextRegisterNo() {
         int num = Integer.parseInt(nextregisterNo);
@@ -88,12 +90,12 @@ public class Event {
     }
 
     public int getEventNo() {
-        return this.EventD.getEntry(0).getEventNo();
+        return this.EventD.getEventNo();
     }
 
     @Override
     public String toString() {
-        return String.format("%-20s %-12s %-10s %-10s", regisNo, member.getEntry(0).getStudentID(), EventD.getEntry(0).getEventNo(), status);
+        return String.format("%-20s %-12s %-10s %-10s", regisNo, member.getStudentID(), EventD.getEventNo(), status);
     }
 
 }

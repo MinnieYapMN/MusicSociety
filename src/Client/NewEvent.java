@@ -230,7 +230,7 @@ try{
         }else{
         System.out.println("The latest event is " + eventList.peek());
         System.out.println("============= Update current Event =============");
-        System.out.println("Please insert the Event title to update details ");
+        System.out.println("Please insert the Event No to update details ");
         insert = input.nextInt();
         System.out.println(".........");
         boolean check = false;

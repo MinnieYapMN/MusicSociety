@@ -94,12 +94,12 @@ public class MusicSociety {
         memList1.add(memberList.get(2));
         memList2.add(memberList.get(3));
 
-        memberEvent.add(new Event("0001", "Confirmed", eventList, memList));
-        memberEvent.add(new Event("0002", "Confirmed", eventList, memList1));
-        memberEvent.add(new Event("0003", "Confirmed", eventList, memList));
-        memberEvent.add(new Event("0004", "Confirmed", eventList, memList2));
-        memberEvent.add(new Event("0005", "Confirmed", eventList, memList));
-        memberEvent.add(new Event("0006", "Confirmed", eventList, memList1));
+        memberEvent.add(new Event("0001", "Confirmed", eventList.getEntry(0), memberList.get(0)));
+        memberEvent.add(new Event("0002", "Confirmed", eventList.getEntry(1), memberList.get(1)));
+        memberEvent.add(new Event("0003", "Confirmed", eventList.getEntry(2), memberList.get(2)));
+        memberEvent.add(new Event("0004", "Confirmed", eventList.getEntry(3), memberList.get(3)));
+        memberEvent.add(new Event("0005", "Confirmed", eventList.getEntry(4), memberList.get(4)));
+        memberEvent.add(new Event("0006", "Confirmed", eventList.getEntry(5), memberList.get(5)));
 
     }
 
@@ -520,12 +520,14 @@ public class MusicSociety {
         if (check == true) {
             do {
 
-                System.out.println(" ============================================");
-                System.out.println(" ++             Events                      ++");
-                System.out.println(" ===========================================\n");
+                System.out.println(" =========================================================");
+                System.out.println(" ++                       Events                      ++");
+                System.out.println(" =========================================================\n");
                 for (int i = 1; i < eventList.EventTotal(); i++) {
                     // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                    System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle());
+        //            System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + "         " + eventList.getEntry(i).getTitle() + "        RM " + eventList.getEntry(i).getFees());
+                    System.out.printf("No. %-5d\t %-30s RM%6.2f\n", eventList.getEntry(i).getEventNo(), eventList.getEntry(i).getTitle(), eventList.getEntry(i).getFees());
+
 //                System.out.println("No" + " " + eventList.getEntry(i).getTitle());
 
                 }
@@ -571,7 +573,7 @@ public class MusicSociety {
                 LinkListInterface<Member> newmemList = new LinkList();
                 newmemList.add(memberList.get(memArray));
 
-                memberEvent.add(new Event("Confirmed", neweventDList, newmemList));
+                memberEvent.add(new Event("Confirmed", eventList.getEntry(arrayNo), memberList.get(memArray)));
             } while (cont == 'Y');
         }
 
@@ -898,7 +900,7 @@ public class MusicSociety {
         } else {
             System.out.println("The latest event is " + eventList.peek());
             System.out.println("============= Update current Event =============");
-            System.out.println("Please insert the Event title to update details ");
+            System.out.println("Please insert the Event No to update details ");
             insert = input.nextInt();
             System.out.println(".........");
             boolean check = false;

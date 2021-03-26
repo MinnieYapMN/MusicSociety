@@ -142,7 +142,7 @@ public class Payment {
 
     @Override
     public String toString(){
-        String output = "   " + paymentNo + "       " + paymentDate + "       " + paymentTime + "          " + event.getRegisNo() + "          " + event.getRegisNo() + "         " + event.getMember().getEntry(0).getStudentID() + "           " + event.getEventD().getEntry(0).getFees();
+        String output = "   " + paymentNo + "       " + paymentDate + "       " + paymentTime + "          " + event.getRegisNo() + "          " + event.getEventNo() + "         " + event.getMember().getStudentID() + "           " + event.getEventD().getFees();
         return output;
     }
 }
