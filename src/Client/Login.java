@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client;
+package Client;
 
 import ADT.*;
 import ADT.MemberListInterface;
 import Entity.*;
 import java.util.Scanner;
-import static client.MusicSociety.*;
+import static Client.MusicSociety.*;
 
 
 /**

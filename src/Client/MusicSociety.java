@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client;
+package Client;
 
 import ADT.*;
 import Entity.*;
 import java.text.ParseException;
 import java.util.Scanner;
 import Client.NewEvent;
+import static Client.PaymentModule.paymentMenu;
 
 /**
  *
@@ -22,7 +23,7 @@ public class MusicSociety {
     public static Admin admin = new Admin("admin", "admin", "1001", "6011-11932585", "admin@tarc.edu.my", "17/03/1999");
     public static EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<EventDetails>();
 
-    SetInterface<Event> memberEvent = new ArraySet<>();
+    public static SetInterface<Event> memberEvent = new ArraySet<>();
 
     LinkListInterface<Admin> adminList;
 
@@ -63,7 +64,7 @@ public class MusicSociety {
 
         EventDetails e = new EventDetails("Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
         eventList.push(e);
-     
+
         e = new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
         eventList.push(e);
 
@@ -209,7 +210,8 @@ public class MusicSociety {
             System.out.println("|     Please choose your selection ><  |");
             System.out.println("|         [1] Member                   |");
             System.out.println("|         [2] Event                    |");
-            System.out.println("|         [3] Back To Login Page       |");
+            System.out.println("|         [3] Payment                    |");
+            System.out.println("|         [4] Back To Login Page       |");
             System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
             System.out.print("Please enter a number => ");
 
@@ -224,7 +226,10 @@ public class MusicSociety {
                         registerEventMenu();
                         break;
                     case 3:
-                       firstPage();
+                        paymentMenu();
+                        break;
+                    case 4:
+                        firstPage();
                         break;
                     default:
                         System.out.println("**Please enter available options!**\n");
@@ -733,7 +738,7 @@ public class MusicSociety {
     public void menu() {
         int menu = - 1;
 //        Scanner sNo = new Scanner(System.in);
- Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("====================================");
             System.out.println("=======Event List Details============");
@@ -746,40 +751,39 @@ public class MusicSociety {
             System.out.println("0. .  Exit program .");
 
             System.out.println(".....................................");
-try{
-            menu = scanner.nextInt();
-            switch (menu) {
-                case 1:
-                    addNew();
-                    break;
-                case 2:
-                    search();
-                    break;
-                case 3:
-                    display();
-                    break;
-                case 4:
-                    update();
-                    break;
-                case 5:
-                    clear();
-                    break;
-                case 6:
-                    Remove();
-                    break;
-                case 0:
-                    registerEventMenu();
-                default:
-                    System.out.println("Invalid selection");
-            }
-           } catch (Exception ex) {
+            try {
+                menu = scanner.nextInt();
+                switch (menu) {
+                    case 1:
+                        addNew();
+                        break;
+                    case 2:
+                        search();
+                        break;
+                    case 3:
+                        display();
+                        break;
+                    case 4:
+                        update();
+                        break;
+                    case 5:
+                        clear();
+                        break;
+                    case 6:
+                        Remove();
+                        break;
+                    case 0:
+                        registerEventMenu();
+                    default:
+                        System.out.println("Invalid selection");
+                }
+            } catch (Exception ex) {
                 System.out.println("Loading ... \n");
 //                 menu = sNo.nextInt();
-                 scanner.next();
-            } 
-           
+                scanner.next();
+            }
 
-        } while ( menu != 0);
+        } while (menu != 0);
 
     }
 
@@ -852,22 +856,22 @@ try{
     public void clear() {
         char ans;
         Scanner anss = new Scanner(System.in);
-         if(eventList.isEmpty()){
+        if (eventList.isEmpty()) {
             System.out.println("No record found");
             menu();
-        }else{
-        System.out.println("Are you sure want to clear all the list?");
-        ans = Character.toUpperCase(anss.next().charAt(0));
+        } else {
+            System.out.println("Are you sure want to clear all the list?");
+            ans = Character.toUpperCase(anss.next().charAt(0));
 
-        if(ans == 'Y' || ans == 'y'){
-            eventList.clear();
-            menu();
-        }else{
-              System.out.println("Remain all information");
-            menu();
+            if (ans == 'Y' || ans == 'y') {
+                eventList.clear();
+                menu();
+            } else {
+                System.out.println("Remain all information");
+                menu();
+            }
+
         }
-       
-         }
     }
 
     public void update() {
@@ -887,134 +891,133 @@ try{
         Scanner getFee = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
         Scanner select = new Scanner(System.in);
- 
-        
-        if(eventList.isEmpty()){
+
+        if (eventList.isEmpty()) {
             System.out.println("No record found");
             menu();
-        }else{
-        System.out.println("The latest event is " + eventList.peek());
-        System.out.println("============= Update current Event =============");
-        System.out.println("Please insert the Event title to update details ");
-        insert = input.nextInt();
-        System.out.println(".........");
-        boolean check = false;
+        } else {
+            System.out.println("The latest event is " + eventList.peek());
+            System.out.println("============= Update current Event =============");
+            System.out.println("Please insert the Event title to update details ");
+            insert = input.nextInt();
+            System.out.println(".........");
+            boolean check = false;
 //        do{
-        //get list
-        for (int i = 0; i < eventList.EventTotal(); i++) {
+            //get list
+            for (int i = 0; i < eventList.EventTotal(); i++) {
 //              System.out.println(eventList.getEntry(i).getEventNo());
-            //catch user input
-            if (eventList.getEntry(i).getEventNo() == insert) {
+                //catch user input
+                if (eventList.getEntry(i).getEventNo() == insert) {
 
-                System.out.println("1.Event No : " + eventList.getEntry(i).getEventNo());
-                System.out.println("...........");
+                    System.out.println("1.Event No : " + eventList.getEntry(i).getEventNo());
+                    System.out.println("...........");
 
-                System.out.println("Please select information to update");
-                System.out.println("1. Event Title");
-                System.out.println("2. Event Date");
-                System.out.println("3. Event Time");
-                System.out.println("4. Location");
-                System.out.println("5. Event Description");
-                System.out.println("6. Fees");
-                System.out.println("7. Update Event List");
-                System.out.println("------------------");
-                choose = select.nextInt();
+                    System.out.println("Please select information to update");
+                    System.out.println("1. Event Title");
+                    System.out.println("2. Event Date");
+                    System.out.println("3. Event Time");
+                    System.out.println("4. Location");
+                    System.out.println("5. Event Description");
+                    System.out.println("6. Fees");
+                    System.out.println("7. Update Event List");
+                    System.out.println("------------------");
+                    choose = select.nextInt();
 
-                if (choose == 1) {
-                    System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
-                    System.out.println("..............");
-                    title = getTitle.nextLine();
-                    eventList.getEntry(i).setTitle(title);
+                    if (choose == 1) {
+                        System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
+                        System.out.println("..............");
+                        title = getTitle.nextLine();
+                        eventList.getEntry(i).setTitle(title);
 
-                    System.out.println("Update successfully");
-                    System.out.println("=================================");
-                } else if (choose == 2) {
-                    System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
-                    System.out.println("..............");
-                    date = getDate.nextLine();
-                    eventList.getEntry(i).setDate(date);
+                        System.out.println("Update successfully");
+                        System.out.println("=================================");
+                    } else if (choose == 2) {
+                        System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
+                        System.out.println("..............");
+                        date = getDate.nextLine();
+                        eventList.getEntry(i).setDate(date);
 
-                    System.out.println("Update successfully");
-                    System.out.println("=================================");
-                } else if (choose == 3) {
-                    System.out.println("4. Event Time : " + eventList.getEntry(i).getTime());
-                    System.out.println("..............");
-                    time = getTime.next();
-                    eventList.getEntry(i).setTime(time);
+                        System.out.println("Update successfully");
+                        System.out.println("=================================");
+                    } else if (choose == 3) {
+                        System.out.println("4. Event Time : " + eventList.getEntry(i).getTime());
+                        System.out.println("..............");
+                        time = getTime.next();
+                        eventList.getEntry(i).setTime(time);
 
-                    System.out.println("Update successfully");
-                    System.out.println("=================================");
-                } else if (choose == 4) {
-                    System.out.println("5. Location : " + eventList.getEntry(i).getLocation());
-                    System.out.println("............");
-                    loc = getLoc.nextLine();
-                    eventList.getEntry(i).setLocation(loc);
+                        System.out.println("Update successfully");
+                        System.out.println("=================================");
+                    } else if (choose == 4) {
+                        System.out.println("5. Location : " + eventList.getEntry(i).getLocation());
+                        System.out.println("............");
+                        loc = getLoc.nextLine();
+                        eventList.getEntry(i).setLocation(loc);
 
-                    System.out.println("Update successfully");
-                    System.out.println("=================================");
-                } else if (choose == 5) {
-                    System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
-                    System.out.println(".....................");
-                    desc = getDesc.nextLine();
-                    eventList.getEntry(i).setDescription(desc);
+                        System.out.println("Update successfully");
+                        System.out.println("=================================");
+                    } else if (choose == 5) {
+                        System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
+                        System.out.println(".....................");
+                        desc = getDesc.nextLine();
+                        eventList.getEntry(i).setDescription(desc);
 
-                    System.out.println("Update successfully");
-                    System.out.println("=================================");
-                } else if (choose == 6) {
-                    System.out.println("7. Fees " + eventList.getEntry(i).getFees());
-                    fee = getFee.nextDouble();
-                    eventList.getEntry(i).setFees(fee);
+                        System.out.println("Update successfully");
+                        System.out.println("=================================");
+                    } else if (choose == 6) {
+                        System.out.println("7. Fees " + eventList.getEntry(i).getFees());
+                        fee = getFee.nextDouble();
+                        eventList.getEntry(i).setFees(fee);
 
-                    System.out.println("Update successfully");
-                    System.out.println("=================================");
-                } else if (choose == 7) {
-                    System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
-                    System.out.println("..............");
-                    title = getTitle.nextLine();
-                    eventList.getEntry(i).setTitle(title);
+                        System.out.println("Update successfully");
+                        System.out.println("=================================");
+                    } else if (choose == 7) {
+                        System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
+                        System.out.println("..............");
+                        title = getTitle.nextLine();
+                        eventList.getEntry(i).setTitle(title);
 
-                    System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
-                    System.out.println("..............");
-                    date = getDate.nextLine();
-                    eventList.getEntry(i).setDate(date);
+                        System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
+                        System.out.println("..............");
+                        date = getDate.nextLine();
+                        eventList.getEntry(i).setDate(date);
 
-                    System.out.println("4. Event Time : " + eventList.getEntry(i).getTime());
-                    System.out.println("..............");
-                    time = getTime.next();
-                    eventList.getEntry(i).setTime(time);
+                        System.out.println("4. Event Time : " + eventList.getEntry(i).getTime());
+                        System.out.println("..............");
+                        time = getTime.next();
+                        eventList.getEntry(i).setTime(time);
 
-                    System.out.println("5. Location : " + eventList.getEntry(i).getLocation());
-                    System.out.println("............");
-                    loc = getLoc.nextLine();
-                    eventList.getEntry(i).setLocation(loc);
+                        System.out.println("5. Location : " + eventList.getEntry(i).getLocation());
+                        System.out.println("............");
+                        loc = getLoc.nextLine();
+                        eventList.getEntry(i).setLocation(loc);
 
-                    System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
-                    System.out.println(".....................");
-                    desc = getDesc.nextLine();
-                    eventList.getEntry(i).setDescription(desc);
+                        System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
+                        System.out.println(".....................");
+                        desc = getDesc.nextLine();
+                        eventList.getEntry(i).setDescription(desc);
 
-                    System.out.println("7. Fees " + eventList.getEntry(i).getFees());
-                    fee = getFee.nextDouble();
-                    eventList.getEntry(i).setFees(fee);
+                        System.out.println("7. Fees " + eventList.getEntry(i).getFees());
+                        fee = getFee.nextDouble();
+                        eventList.getEntry(i).setFees(fee);
 
-                    System.out.println("Update successfully");
-                    System.out.println("=================================");
-                } else {
-                    display();
+                        System.out.println("Update successfully");
+                        System.out.println("=================================");
+                    } else {
+                        display();
+                    }
+
+                    check = true;
+                    break;
                 }
-
-                check = true;
-                break;
-            }
 //               
-        }
-        if (!check) {
-            System.out.println("No record");
-        }
+            }
+            if (!check) {
+                System.out.println("No record");
+            }
 
 //            System.out.println(eventList.getEntry(insert));
-        display();
-    }
+            display();
+        }
     }
 
     //new list 
@@ -1024,14 +1027,14 @@ try{
 //             choose = Character.toUpperCase(slc.next().charAt(0));
 //    }while( choose =='Y');
     public void Remove() {
- if(eventList.isEmpty()){
+        if (eventList.isEmpty()) {
             System.out.println("No record found");
             menu();
-        }else{
-        System.out.println("Remove the latest details");
-        eventList.pop();
-        menu();
-      }
+        } else {
+            System.out.println("Remove the latest details");
+            eventList.pop();
+            menu();
+        }
     }
 
     public void search() {
@@ -1039,83 +1042,80 @@ try{
         Scanner search = new Scanner(System.in);
 //        
 
-        if(eventList.isEmpty()){
+        if (eventList.isEmpty()) {
             System.out.println("No record found");
             menu();
-        }else{
-            
-            
-       
-        System.out.println("Please enter the Event no ");
-        find = search.nextInt();
+        } else {
 
-        boolean fin = false;
-        for (int i = 0; i < eventList.EventTotal(); i++) {
-            if (eventList.getEntry(i).getEventNo() == find) {
-                System.out.println("1.Event No : " + eventList.getEntry(i).getEventNo());
-                System.out.println("...........");
+            System.out.println("Please enter the Event no ");
+            find = search.nextInt();
 
-                System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
-                System.out.println("..............");
+            boolean fin = false;
+            for (int i = 0; i < eventList.EventTotal(); i++) {
+                if (eventList.getEntry(i).getEventNo() == find) {
+                    System.out.println("1.Event No : " + eventList.getEntry(i).getEventNo());
+                    System.out.println("...........");
 
-                System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
-                System.out.println("..............");
+                    System.out.println("2. Event Title : " + eventList.getEntry(i).getTitle());
+                    System.out.println("..............");
 
-                System.out.println("4. Event Time : " + eventList.getEntry(i).getTime());
-                System.out.println("..............");
+                    System.out.println("3. Event Date : " + eventList.getEntry(i).getDate());
+                    System.out.println("..............");
 
-                System.out.println("5. Location : " + eventList.getEntry(i).getLocation());
-                System.out.println("............");
+                    System.out.println("4. Event Time : " + eventList.getEntry(i).getTime());
+                    System.out.println("..............");
 
-                System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
-                System.out.println(".....................");
+                    System.out.println("5. Location : " + eventList.getEntry(i).getLocation());
+                    System.out.println("............");
 
-                System.out.println("7. Fees " + eventList.getEntry(i).getFees());
-                fin = true;
-                break;
+                    System.out.println("6. Event Description : " + eventList.getEntry(i).getDescription());
+                    System.out.println(".....................");
+
+                    System.out.println("7. Fees " + eventList.getEntry(i).getFees());
+                    fin = true;
+                    break;
+                }
+
             }
-
-        }
-        if (!fin) {
-            System.out.println("No record");
-        }
+            if (!fin) {
+                System.out.println("No record");
+            }
 //            else
 //            System.out.println(eventList.getEntry(find));
-        menu();
-    }
+            menu();
+        }
     }
 //    }
+
     public void display() {
         int back;
         Scanner menu = new Scanner(System.in);
-       if(eventList.isEmpty()){
+        if (eventList.isEmpty()) {
             System.out.println("No record found");
             menu();
-        }else{
-      
-        do {
-            
-            for (int i = 1; i < eventList.EventTotal(); i++) {
-                // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()
-                        + " " + eventList.getEntry(i).getDate()+ " " + eventList.getEntry(i).getTime()
-                + " " + eventList.getEntry(i).getLocation()+ " " + eventList.getEntry(i).getDescription()
-                        + " " + eventList.getEntry(i).getFees());
-  }              
-            System.out.println("Please press 0 to go back menu");
+        } else {
 
-            back = menu.nextInt();
-            menu();
-           
-         
-           
-        } while (back != 0);
+            do {
+
+                for (int i = 1; i < eventList.EventTotal(); i++) {
+                    // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+                    System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()
+                            + " " + eventList.getEntry(i).getDate() + " " + eventList.getEntry(i).getTime()
+                            + " " + eventList.getEntry(i).getLocation() + " " + eventList.getEntry(i).getDescription()
+                            + " " + eventList.getEntry(i).getFees());
+                }
+                System.out.println("Please press 0 to go back menu");
+
+                back = menu.nextInt();
+                menu();
+
+            } while (back != 0);
 //        
 
 //if(!diss && eventList.isEmpty()){
 //                 System.out.println("No record found");
 //            }
+        }
+
     }
-     
-    }
-    }
+}
