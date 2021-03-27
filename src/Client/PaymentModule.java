@@ -136,13 +136,17 @@ public class PaymentModule {
         try {
             String regisNo = input.next();
             //double total = 100.99;
-
+            
             for (int i = 0; i < memberEvent.getSize(); i++) {
                 if (regisNo.equals((memberEvent.getEntry(i).getRegisNo()))) {
+                   // System.out.print(memberEvent.getEntry(i));
                     //if else
-                    
-                      //  if (!regisNo.equals(paymentList.getEntry(i).getEvent().getRegisNo())) {
+                     //   Payment paymentDetails = null;
+                     //   if (!regisNo.equals(paymentDetails.getEvent().getRegisNo())) {
                             //EventDetails tempE = memberEvent.getEntry(i).getEventD();
+                            System.out.println("==========================================================================");
+                            System.out.println("Event No\t Student ID\t Event No\t Price(RM)\t Status");
+                            System.out.println("==========================================================================");
                             System.out.print(memberEvent.getEntry(i));
                             found = true;
                             System.out.print("\nEnter payment amount > ");
@@ -191,7 +195,7 @@ public class PaymentModule {
 
         try {
             displayPayment();
-            System.out.println("Enter Payment No > ");
+            System.out.print("Enter Payment No > ");
             int pNo = input.nextInt();
             for (int i = 1; i <= paymentList.getSize(); i++) {
                 if (pNo == (paymentList.getEntry(i).getPaymentNo())) {
@@ -213,7 +217,7 @@ public class PaymentModule {
                 System.out.println("No such paymentNo. Please try again!");
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Invalid input! Please try again!");
             //refundPayment();
 
         }
@@ -433,17 +437,18 @@ public class PaymentModule {
             try {
                 displayPayment();
                 System.out.print("Enter Register No > ");
-                String sStudID = input.next();
+                String regisNo = input.next();
                 input.nextLine();
 
                 for (int i = 1; i <= paymentList.getSize(); i++) {
-                    if (sStudID.equals(paymentList.getEntry(i).getEvent().getRegisNo())) {
+                    if (regisNo.equals(paymentList.getEntry(i).getEvent().getRegisNo())) {
                         System.out.println(paymentList.getEntry(i));
                         result = true;
                     }
                 }
+
                 if (!result) {
-                    System.out.println("No such Regis No. Please try again!");
+                    System.out.println("No such Register No. Please try again!");
                     continue;
                 }
 
@@ -470,27 +475,27 @@ public class PaymentModule {
         // SimpleDateFormat month = new SimpleDateFormat("MM");
         // SimpleDateFormat year = new SimpleDateFormat("yyyy");
         System.out.println("\n");
-        System.out.println("==================================================");
-        System.out.println("\t\t MUSIC SOCIETY ");
-        System.out.println("==================================================");
+        System.out.println("================================================================");
+        System.out.println("\t\t\t MUSIC SOCIETY ");
+        System.out.println("================================================================");
         System.out.print("\n");
         System.out.println("Payment No: " + pym.getPaymentNo());
         System.out.println("Date: " + date + "\n" + "Time: " + time);
         System.out.println("Register No: " + pym.getEvent().getRegisNo());
         System.out.print("\n");
-        System.out.println("===========================================================================================================================================");
-        System.out.println("Event No\t Description\t\t\t\t\t\t\t\t\t\t\t\t\t Price(RM)");
-        System.out.println("===========================================================================================================================================");
+        System.out.println("================================================================");
+        System.out.println("Event No\t Name\t\t\t\t Price(RM)");
+        System.out.println("================================================================");
 
-        System.out.printf("%-5s\t\t %-50s \t %6.2f\n", pym.getEvent().getEventNo(), pym.getEvent().getEventD().getDescription(), pym.getEvent().getEventD().getFees());
+        System.out.printf("%-5s\t\t %-30s    %6.2f\n", pym.getEvent().getEventNo(), pym.getEvent().getEventD().getTitle(), pym.getEvent().getEventD().getFees());
         //System.out.println("DFF");
         System.out.print("\n");
-        System.out.println("--------------------------------------------------");
-        System.out.println("Total Amount: \t\t\t\t " + String.format("%6.2f", pym.getEvent().getEventD().getFees()));
-        System.out.println("Paid Amount" + ":\t\t\t\t\t " + String.format("%6.2f", paymentAmount));
-        System.out.println("Change: \t\t\t\t " + String.format("%6.2f", paymentAmount - pym.getEvent().getEventD().getFees()));
-        System.out.println("==================================================");
-        System.out.println("\t\t    THANK YOU");
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("Total Amount: \t\t\t\t\t   " + String.format("%6.2f", pym.getEvent().getEventD().getFees()));
+        System.out.println("Paid Amount" + ":\t\t\t\t\t   " + String.format("%6.2f", paymentAmount));
+        System.out.println("Change: \t\t\t\t\t   " + String.format("%6.2f", paymentAmount - pym.getEvent().getEventD().getFees()));
+        System.out.println("================================================================");
+        System.out.println("\t\t\t    THANK YOU");
     }
 
     public static void main(String[] args) throws ParseException {

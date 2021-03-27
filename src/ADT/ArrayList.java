@@ -97,9 +97,9 @@ public class ArrayList<T> implements ListInterface<T> {
     @Override
     public String toString() {
         String str = "";
-        System.out.println("============================================================================================================");
-        System.out.println("No" + "     " + "Payment No" + "    " + "Payment Date" + "     " + "Payment Time" + "       " + "Event No" + "       " + "Student ID" + "       " + "Total Amount(RM)");
-        System.out.println("============================================================================================================");
+        System.out.println("================================================================================================================================");
+        System.out.println("No" + "     " + "Payment No" + "    " + "Payment Date" + "     " + "Payment Time" + "       " + "Register No" + "       " + "Event No" + "       " + "Student ID" + "       " + "Total Amount(RM)");
+        System.out.println("================================================================================================================================");
         for (int i = 0; i < size; i++) {
             //str += "[" + i + "]" + array[i].toString() + "\n";
             str += "[" + (i+1) + "]" + "    " + array[i].toString() + "\n";

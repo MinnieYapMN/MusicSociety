@@ -95,7 +95,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return String.format("%-20s %-12s %-10s %-10s", regisNo, member.getStudentID(), EventD.getEventNo(), status);
+        return String.format("%-10s \t %-15s   %-10s    %6.2f \t%-10s", regisNo, member.getStudentID(), EventD.getEventNo(), EventD.getFees(), status);
     }
 
 }
