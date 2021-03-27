@@ -92,10 +92,14 @@ public class Event {
     public int getEventNo() {
         return this.EventD.getEventNo();
     }
+    
+     public String getStudId() {
+        return this.member.getStudentID();
+    }
 
     @Override
     public String toString() {
         return String.format("%-10s \t %-15s   %-10s    %6.2f \t%-10s", regisNo, member.getStudentID(), EventD.getEventNo(), EventD.getFees(), status);
     }
-
+    
 }
