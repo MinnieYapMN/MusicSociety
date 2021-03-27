@@ -276,13 +276,6 @@ public class PaymentModule {
         boolean result = false;
         boolean exit = false;
         
-        Date getDate = new Date();
-        SimpleDateFormat Date = new SimpleDateFormat("dd-MMM-yyyy");
-        SimpleDateFormat Time = new SimpleDateFormat("HH:mm:ssa");
-        String date = Date.format(getDate);
-        String time = Time.format(getDate);
-        SetInterface<Event> memberEvent = Client.MusicSociety.memberEvent;
-        
         while (true) {
 
             try {
@@ -295,13 +288,10 @@ public class PaymentModule {
                 String sPaymentNo = input.next();
                 input.nextLine();
                 int paymentNo = Integer.parseInt(sPaymentNo);
-                
-                
-                
+
                 for (int i = 1; i <= paymentList.getSize(); i++) {
-                    Payment pym = new Payment(date, time, memberEvent.getEntry(i));
                     if (paymentNo == paymentList.getEntry(i).getPaymentNo()) {
-                        System.out.println(paymentList.contains(pym));
+                        System.out.println(paymentList.getEntry(i));
                         result = true;
                     }
                 }
