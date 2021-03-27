@@ -329,8 +329,17 @@ public class MusicSociety {
 
         boolean exit = false;
         while (exit == false) {
+            
             System.out.print("Enter your studentID => ");
             String studentID = scanner.nextLine();
+            for (int i = 0; i < memberList.getLength(); i++) {
+            if (studentID.equals(memberList.get(i).getStudentID())) {
+                System.out.print("This user already register as our member!\n");
+                exit = true;
+                memberMaintainencePage();
+            }
+            }
+            if (exit == false){   
             System.out.print("Enter your name => ");
             String name = scanner.nextLine();
             System.out.print("Enter your contactNo => ");
@@ -342,15 +351,16 @@ public class MusicSociety {
             Member m = new Member(studentID, name, contactNo, email, birthdate);
             memberList.add(m);
             System.out.print("\nSuccessfully Register!");
-
             System.out.println("\n[1] Register new member again");
             System.out.println("[Any key] Exit to the Member Maintainence page");
             System.out.print("Your option => ");
             String option = scanner.nextLine();
             if (!option.equals("1")) {
                 memberMaintainencePage();
+            }        
             }
         }
+        
     }
 
     private void editMember() {
