@@ -39,10 +39,12 @@ public class ArrayList<T> implements ListInterface<T> {
         if (!isEmpty()){
             if ((index >= 1) && (index <= size)) {
                 T removedEntry = array[index - 1];
-                size--;
-                for(int i = index; i < size; i++){
+                
+                for(int i = index; i <= size; i++){
                     array[i-1] = array[i]; // do sifting
                 }
+                size--;
+                
             return removedEntry;                  
             }
            
@@ -60,8 +62,6 @@ public class ArrayList<T> implements ListInterface<T> {
         return null;
     }
     
-
-
     @Override
     public void clear() {
         size = 0;
@@ -97,9 +97,13 @@ public class ArrayList<T> implements ListInterface<T> {
     @Override
     public String toString() {
         String str = "";
-        System.out.println("================================================================================================================================");
-        System.out.println("No" + "     " + "Payment No" + "    " + "Payment Date" + "     " + "Payment Time" + "       " + "Register No" + "       " + "Event No" + "       " + "Student ID" + "       " + "Total Amount(RM)");
-        System.out.println("================================================================================================================================");
+        System.out.println("==================================================="
+                + "=============================================================================");
+        System.out.println("No" + "     " + "Payment No" + "    " + "Payment Date"
+                + "     " + "Payment Time" + "       " + "Register No" + "       "
+                + "Event No" + "       " + "Student ID" + "       " + "Total Amount(RM)");
+        System.out.println("==================================================="
+                + "=============================================================================");
         for (int i = 0; i < size; i++) {
             //str += "[" + i + "]" + array[i].toString() + "\n";
             str += "[" + (i+1) + "]" + "    " + array[i].toString() + "\n";

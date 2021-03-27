@@ -1,8 +1,6 @@
 package Entity;
 
-
 import ADT.*;
-import java.util.Objects;
 
 /**
  * 
@@ -20,14 +18,14 @@ public class Payment {
         this.paymentNo = nextNumber++;
     }
     
-
+    
     public Payment( String paymentDate, String paymentTime, Event event) {
         this.paymentNo = nextNumber++;
         this.paymentDate = paymentDate;
         this.paymentTime = paymentTime;
         this.event = event;        
     }
-
+   
     
     public int getPaymentNo() {
         return paymentNo;
@@ -69,8 +67,17 @@ public class Payment {
         this.event = event;
     }
     
-    
+    @Override
+    public String toString(){
+        String output = "   " + paymentNo + "       " + paymentDate + "       " + paymentTime + "          " + event.getRegisNo() + "             " + event.getEventNo() + "          " + event.getMember().getStudentID() + "            " + event.getEventD().getFees();
+        return output;
+    }
  
+    
+    
+   
+    
+    
 //    @Override
 //    public boolean equals(Object obj) {
 //        if (this == obj) {
@@ -89,9 +96,5 @@ public class Payment {
 //        return true;
 //    }
 
-    @Override
-    public String toString(){
-        String output = "   " + paymentNo + "       " + paymentDate + "       " + paymentTime + "          " + event.getRegisNo() + "             " + event.getEventNo() + "          " + event.getMember().getStudentID() + "            " + event.getEventD().getFees();
-        return output;
-    }
+    
 }

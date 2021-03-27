@@ -28,28 +28,25 @@ public class PaymentModule {
     //   public static EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<>();
 //    public static LinkListInterface<Member> memberList;
 //    public static LinkListInterface<Member> memList = new LinkList();
-    public static Event event = null;
-
+    // public static Event event = null;
 //    HashQuadDictionary<String, Developer> hashDev = new HashingImplement<>();
-    public void initialize() throws ParseException {
-        Date getDate = new Date();
-        SimpleDateFormat Date = new SimpleDateFormat("dd-MMM-yyyy");
-        SimpleDateFormat Time = new SimpleDateFormat("HH:mm:ssa");
-        String date = Date.format(getDate);
-        String time = Time.format(getDate);
-
+//    public void initialize() throws ParseException {
+//        Date getDate = new Date();
+//        SimpleDateFormat Date = new SimpleDateFormat("dd-MMM-yyyy");
+//        SimpleDateFormat Time = new SimpleDateFormat("HH:mm:ssa");
+//        String date = Date.format(getDate);
+//        String time = Time.format(getDate);
 //        event = new Event("0001", "Confirmed", eventDList, memList);
 //        EventDetails e = new EventDetails(2212, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
 //        eventList.push(e);
 //        e = new EventDetails(2312, "Music stadium", "23/12/2021", "8:00-17:00", "Main Hall", "Please show ur id card to entry the hall", 25.00);
 //        eventList.push(e);
-        //memList.add(memberList.getEntry(1));
-        //  eventDList.push(eventList.getEntry(1));
+    //memList.add(memberList.getEntry(1));
+    //  eventDList.push(eventList.getEntry(1));
 //        memberEvent.add(new Event("0001", "Confirmed", eventDList, memList));
 //        paymentList.add(new Payment(date, time, new Event("0001", "Confirmed", eventDList, memList)));
 //        paymentList.add(new Payment(date, time, new Event("0001", "Confirmed", eventDList, memList)));
-    }
-
+//    }
     public static void paymentMenu() {
         Scanner input = new Scanner(System.in);
         boolean exit = false;
@@ -63,7 +60,8 @@ public class PaymentModule {
                 System.out.println("2. Add Payment");
                 System.out.println("3. Search payment");
                 System.out.println("4. Refund Payment");
-                System.out.println("5. Exit");
+                System.out.println("5. Clear All Payment Records");
+                System.out.println("6. Exit");
                 System.out.print("\nPlease make your selection > ");
                 int paymentSelection = input.nextInt();
 
@@ -81,6 +79,9 @@ public class PaymentModule {
                         refundPayment();
                         break;
                     case 5:
+                        clearAllPayment();
+                        break;
+                    case 6:
                         exit = true;
                         break;
                     default:
@@ -100,28 +101,18 @@ public class PaymentModule {
     }
 
     public static void displayPayment() {
-        Scanner input = new Scanner(System.in);
 
-        System.out.println(paymentList);
+        if (paymentList.isEmpty()) {
+            System.out.println("No payment record in payment list! Please make payment first.");
+        } else {
+            System.out.println(paymentList.toString());
+        }
 
-//        input.nextLine();
-//        System.out.println("Refund payment? (1 = Yes, Any key to exit) > ");
-//        int rpChoice = input.nextInt();
-//        if(rpChoice == 1){
-//            refundPayment();
-//        }else{
-//            paymentMenu();
-//        }  
     }
 
     public static void addPayment() {
         Scanner input = new Scanner(System.in);
-        //Category aPayment = new Category();
-        // how to get last paymentNo, eventID, studID, totalamount details from event table
 
-        //int pay = aPayment.getPaymentNo();
-        //Category[] cat = new Category[];
-        //int lastPaymentNo = Category[Category.length -1].getPaymentNo;
         Date getDate = new Date();
         SimpleDateFormat Date = new SimpleDateFormat("dd-MMM-yyyy");
         SimpleDateFormat Time = new SimpleDateFormat("HH:mm:ssa");
@@ -136,43 +127,51 @@ public class PaymentModule {
         try {
             String regisNo = input.next();
             //double total = 100.99;
-            
+
             for (int i = 0; i < memberEvent.getSize(); i++) {
                 if (regisNo.equals((memberEvent.getEntry(i).getRegisNo()))) {
-                   // System.out.print(memberEvent.getEntry(i));
                     //if else
-                     //   Payment paymentDetails = null;
-                     //   if (!regisNo.equals(paymentDetails.getEvent().getRegisNo())) {
-                            //EventDetails tempE = memberEvent.getEntry(i).getEventD();
-                            System.out.println("==========================================================================");
-                            System.out.println("Event No\t Student ID\t Event No\t Price(RM)\t Status");
-                            System.out.println("==========================================================================");
-                            System.out.print(memberEvent.getEntry(i));
-                            found = true;
-                            System.out.print("\nEnter payment amount > ");
-                            double paymentAmount = input.nextDouble();
+                    found = true;
+                    boolean paymentDone = false;
+                    for (int k = 0; k < paymentList.getSize(); k++) {
+                        String pymRegNo = paymentList.getEntry(k+1).getEvent().getRegisNo();
+                        if (pymRegNo.equals(regisNo)) {
+                            System.out.println("Payment made for this register number!");
+                            paymentDone = true;
+                            break;
+                        }
+                    }
 
-                            boolean paid = false;
-                            while (!paid) {
-                                //  System.out.println(memberEvent.getEntry(i).getEventD().getFees());
-                                if (paymentAmount >= memberEvent.getEntry(i).getEventD().getFees()) {
-                                    double change = paymentAmount - memberEvent.getEntry(i).getEventD().getFees();
-                                    System.out.printf("Change > %.2f\n", change);
-                                    Payment pym = new Payment(date, time, memberEvent.getEntry(i));
-                                    paymentList.add(pym);
-                                    System.out.println("Payment Added");
-                                    generateReceipt(pym, paymentAmount);
-                                    paid = true;
-                                } else {
-                                    System.out.println("The payment amount should greater than total amount");
-                                    System.out.print("Enter payment amount > ");
-                                    paymentAmount = input.nextDouble();
-                                }
-                            }
-//                        } else {
-//                            System.out.println("Payment made for this regis no!");
-//                        }
-                    
+                    if (paymentDone) {
+                        break;
+                    }
+
+                    //EventDetails tempE = memberEvent.getEntry(i).getEventD();
+                    System.out.println("==========================================================================");
+                    System.out.println("Event No\t Student ID\t Event No\t Price(RM)\t Status");
+                    System.out.println("==========================================================================");
+                    System.out.print(memberEvent.getEntry(i));
+                    found = true;
+                    System.out.print("\nEnter payment amount > ");
+                    double paymentAmount = input.nextDouble();
+
+                    boolean paid = false;
+                    while (!paid) {
+                        //  System.out.println(memberEvent.getEntry(i).getEventD().getFees());
+                        if (paymentAmount >= memberEvent.getEntry(i).getEventD().getFees()) {
+                            double change = paymentAmount - memberEvent.getEntry(i).getEventD().getFees();
+                            System.out.printf("Change > %.2f\n", change);
+                            Payment pym = new Payment(date, time, memberEvent.getEntry(i));
+                            paymentList.add(pym);
+                            System.out.println("Payment Added");
+                            generateReceipt(pym, paymentAmount);
+                            paid = true;
+                        } else {
+                            System.out.println("The payment amount should greater than total amount");
+                            System.out.print("Enter payment amount > ");
+                            paymentAmount = input.nextDouble();
+                        }
+                    }
 
                 }
             }
@@ -186,10 +185,7 @@ public class PaymentModule {
 
     //remove the particular item from list
     public static void refundPayment() {
-        //ListInterface<Payment> refPayment = new ArrayList<>();
-        //refPayment = cat;
-        //Payment aPayment = new Payment();
-        //refPayment = new ArrayList<>();
+
         boolean found = false;
         Scanner input = new Scanner(System.in);
 
@@ -201,16 +197,14 @@ public class PaymentModule {
                 if (pNo == (paymentList.getEntry(i).getPaymentNo())) {
                     System.out.print(paymentList.getEntry(i));
                     found = true;
-                    System.out.println("\nConfirm refund ths payment? (1 = Yes, 2 = No) > ");
+                    System.out.print("\nConfirm refund ths payment? (1 = Yes, 2 = No) > ");
                     int crfPayment = input.nextInt();
                     if (crfPayment == 1) {
                         paymentList.remove(i);
                         System.out.println("\nPayment refunded.");
                         displayPayment();
-
                     }
-                    //paymentList.remove(paymentList.getEntry(pNo));
-                    //System.out.println(paymentList);
+
                 }
             }
             if (!found) {
@@ -281,18 +275,33 @@ public class PaymentModule {
         Scanner input = new Scanner(System.in);
         boolean result = false;
         boolean exit = false;
-
+        
+        Date getDate = new Date();
+        SimpleDateFormat Date = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat Time = new SimpleDateFormat("HH:mm:ssa");
+        String date = Date.format(getDate);
+        String time = Time.format(getDate);
+        SetInterface<Event> memberEvent = Client.MusicSociety.memberEvent;
+        
         while (true) {
+
             try {
+                if (paymentList.isEmpty()){
+                    System.out.println("No record found in payment list");
+                    break;
+                }
                 displayPayment();
                 System.out.print("Enter Payment No > ");
                 String sPaymentNo = input.next();
                 input.nextLine();
                 int paymentNo = Integer.parseInt(sPaymentNo);
-
+                
+                
+                
                 for (int i = 1; i <= paymentList.getSize(); i++) {
+                    Payment pym = new Payment(date, time, memberEvent.getEntry(i));
                     if (paymentNo == paymentList.getEntry(i).getPaymentNo()) {
-                        System.out.println(paymentList.getEntry(i));
+                        System.out.println(paymentList.contains(pym));
                         result = true;
                     }
                 }
@@ -301,7 +310,7 @@ public class PaymentModule {
                     continue;
                 }
 
-                System.out.println("\nSearch again? (Y = Yes, Any key = Back to menu) > ");
+                System.out.print("\nSearch again? (Y = Yes, Any key = Back to menu) > ");
                 String selection = input.next();
                 input.nextLine();
                 if (!selection.equalsIgnoreCase("y")) {
@@ -313,6 +322,7 @@ public class PaymentModule {
             }
 
         }
+
     }
 
     public static void searchByEventNo() {
@@ -498,10 +508,35 @@ public class PaymentModule {
         System.out.println("\t\t\t    THANK YOU");
     }
 
+    public static void clearAllPayment() {
+        Scanner input = new Scanner(System.in);
+
+        if (paymentList.isEmpty()) {
+            System.out.println("No records in payment list!");
+        } else {
+            displayPayment();
+            System.out.print("Are you sure to clear all the payment records? (Y = Yes, N = No) > ");
+            String clearRecord = input.next();
+            if (clearRecord.equalsIgnoreCase("y")) {
+                paymentList.clear();
+                System.out.println("All payment records cleared!");
+
+            } else if (clearRecord.equalsIgnoreCase("n")) {
+
+            }
+
+            if (!clearRecord.equalsIgnoreCase("n") && !clearRecord.equalsIgnoreCase("y")) {
+                System.out.println("Invalid input, please enter again!");
+            }
+
+        }
+
+    }
+
     public static void main(String[] args) throws ParseException {
         // TODO code application logic here
         PaymentModule app = new PaymentModule();
-        app.initialize();
+        //  app.initialize();
         app.paymentMenu();
     }
 
