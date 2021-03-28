@@ -523,11 +523,11 @@ public class PaymentModule {
 
     }
 
-    public static void main(String[] args) throws ParseException {
-        // TODO code application logic here
-        PaymentModule app = new PaymentModule();
-        //  app.initialize();
-        app.paymentMenu();
-    }
+//    public static void main(String[] args) throws ParseException {
+//        // TODO code application logic here
+//        PaymentModule app = new PaymentModule();
+//        //  app.initialize();
+//        app.paymentMenu();
+//    }
 
 }
