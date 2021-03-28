@@ -10,13 +10,15 @@ import ADT.MemberListInterface;
 import Entity.*;
 import java.util.Scanner;
 import static Client.MusicSociety.*;
+import static Client.PaymentModule.paymentMenu;
+import static Client.CoreBusinessModule.registerEventMenu;
 
 
 /**
  *
  * @author Ming Nee
  */
-public class Login {
+public class LoginAndUserMaintenance {
 
 
     public static void firstPage() {
@@ -53,7 +55,7 @@ public class Login {
             }
         } catch (Exception e) {
             System.out.println("**Invalid Input! Please Re-enter Again!**\n");
-            scanner.next();
+            firstPage();
         }
 
     }
@@ -119,7 +121,8 @@ public class Login {
             System.out.println("|     Please choose your selection ><  |");
             System.out.println("|         [1] Member                   |");
             System.out.println("|         [2] Event                    |");
-            System.out.println("|         [0] Exit                     |");
+            System.out.println("|         [3] Payment                  |");
+            System.out.println("|         [4] Back To Login Page       |");
             System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
             System.out.print("Please enter a number => ");
 
@@ -131,13 +134,14 @@ public class Login {
                         memberMaintainencePage();
                         break;
                     case 2:
-//                        RegisterEvent();
+                        registerEventMenu();
                         break;
-                    case 0:
-                        System.out.println("\n=====================================");
-                        System.out.println("    HAVE A NICE DAY! BYE-BYE >.<");
-                        System.out.println("=====================================");
-                        System.exit(0);
+                    case 3:
+                        paymentMenu();
+                        break;
+                    case 4:
+                        firstPage();
+                        break;
                     default:
                         System.out.println("**Please enter available options!**\n");
                 }
@@ -236,28 +240,38 @@ public class Login {
 
         boolean exit = false;
         while (exit == false) {
+
             System.out.print("Enter your studentID => ");
             String studentID = scanner.nextLine();
-            System.out.print("Enter your name => ");
-            String name = scanner.nextLine();
-            System.out.print("Enter your contactNo => ");
-            String contactNo = scanner.nextLine();
-            System.out.print("Enter your email => ");
-            String email = scanner.nextLine();
-            System.out.print("Enter your birthdate => ");
-            String birthdate = scanner.nextLine();
-            Member m = new Member(studentID, name, contactNo, email, birthdate);
-            memberList.add(m);
-            System.out.print("\nSuccessfully Register!");
-
-            System.out.println("\n[1] Register new member again");
-            System.out.println("[Any key] Exit to the Member Maintainence page");
-            System.out.print("Your option => ");
-            String option = scanner.nextLine();
-            if (!option.equals("1")) {
-                memberMaintainencePage();
+            for (int i = 0; i < memberList.getLength(); i++) {
+                if (studentID.equals(memberList.get(i).getStudentID())) {
+                    System.out.print("This user already register as our member!\n");
+                    exit = true;
+                    memberMaintainencePage();
+                }
+            }
+            if (exit == false) {
+                System.out.print("Enter your name => ");
+                String name = scanner.nextLine();
+                System.out.print("Enter your contactNo => ");
+                String contactNo = scanner.nextLine();
+                System.out.print("Enter your email => ");
+                String email = scanner.nextLine();
+                System.out.print("Enter your birthdate => ");
+                String birthdate = scanner.nextLine();
+                Member m = new Member(studentID, name, contactNo, email, birthdate);
+                memberList.add(m);
+                System.out.print("\nSuccessfully Register!");
+                System.out.println("\n[1] Register new member again");
+                System.out.println("[Any key] Exit to the Member Maintainence page");
+                System.out.print("Your option => ");
+                String option = scanner.nextLine();
+                if (!option.equals("1")) {
+                    memberMaintainencePage();
+                }
             }
         }
+
     }
 
     private static void editMember() {

@@ -139,10 +139,12 @@ public class ArraySet<T> implements SetInterface<T> {
         return result;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public void clear() {
         size = 0;
     }

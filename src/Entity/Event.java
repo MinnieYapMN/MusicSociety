@@ -77,8 +77,6 @@ public class Event {
         this.member = member;
     }
 
-    
-
     public static String getNextRegisterNo() {
         int num = Integer.parseInt(nextregisterNo);
         nextregisterNo = "" + num;
@@ -93,7 +91,7 @@ public class Event {
         return this.EventD.getEventNo();
     }
     
-     public String getStudId() {
+    public String getStudId() {
         return this.member.getStudentID();
     }
 
