@@ -62,7 +62,7 @@ public class EventMaintenance {
                         System.out.println("Invalid selection");
                 }
             } catch (Exception ex) {
-                System.out.println("Loading ... \n");
+                System.out.println("\nLoading ... \n Please Press any");
 //                 menu = sNo.nextInt();
                 scanner.next();
             }
@@ -382,13 +382,19 @@ public class EventMaintenance {
             do {
 
                 for (int i = 1; i < eventList.EventTotal(); i++) {
-                    // System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
-                    System.out.println("No" + " " + eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()
-                            + " " + eventList.getEntry(i).getDate() + " " + eventList.getEntry(i).getTime()
-                            + " " + eventList.getEntry(i).getLocation() + " " + eventList.getEntry(i).getDescription()
-                            + " " + eventList.getEntry(i).getFees());
+//                     System.out.println("No" + (i + 1) + " " + current.data.toString() + " ");
+//                    System.out.println("No" + (i) + " "+eventList.getEntry(i).getEventNo() + " " + eventList.getEntry(i).getTitle()
+//                            + "      " + eventList.getEntry(i).getDate() +"  "+ eventList.getEntry(i).getTime()
+//                            + " " + " " + eventList.getEntry(i).getLocation() + " " + eventList.getEntry(i).getDescription()
+//                            + " " + eventList.getEntry(i).getFees());
+                   
+                  System.out.printf(" %-5s %-20s \t%-10s \t %-10s \t\t %-50s \t\t\t %-120s \t\t\t %-4s \n",eventList.getEntry(i).getEventNo(),eventList.getEntry(i).getTitle()
+                           ,eventList.getEntry(i).getDate(),eventList.getEntry(i).getTime()
+                           ,eventList.getEntry(i).getLocation() ,eventList.getEntry(i).getDescription()
+                            ,eventList.getEntry(i).getFees()); 
                 }
-                System.out.println("Please press 0 to go back menu");
+                
+                System.out.println("Please press 0 to go back menu ");
 
                 back = menu.nextInt();
                 menu();

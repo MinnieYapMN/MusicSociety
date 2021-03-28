@@ -22,6 +22,7 @@ public void clear(); // clear all daata
 public T getEntry(int a); // get all entry in data
 
 
+
     
     
 }

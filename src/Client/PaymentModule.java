@@ -20,33 +20,7 @@ public class PaymentModule {
 
     public static ListInterface<Payment> paymentList = new ArrayList<>();
 
-//    public static SetInterface<Event> memberEvent = new ArraySet<>();
-    //  public static EventLinkedStackInterface<EventDetails> eventList = new EventLinkedStack<EventDetails>();
-    //MemberListInterface<Member> memberList = new MemberLinkedList();
-    // EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<EventDetails>();
-    //MemberListInterface<Member> memList = new MemberLinkedList();
-    //   public static EventLinkedStackInterface<EventDetails> eventDList = new EventLinkedStack<>();
-//    public static LinkListInterface<Member> memberList;
-//    public static LinkListInterface<Member> memList = new LinkList();
-    // public static Event event = null;
-//    HashQuadDictionary<String, Developer> hashDev = new HashingImplement<>();
-//    public void initialize() throws ParseException {
-//        Date getDate = new Date();
-//        SimpleDateFormat Date = new SimpleDateFormat("dd-MMM-yyyy");
-//        SimpleDateFormat Time = new SimpleDateFormat("HH:mm:ssa");
-//        String date = Date.format(getDate);
-//        String time = Time.format(getDate);
-//        event = new Event("0001", "Confirmed", eventDList, memList);
-//        EventDetails e = new EventDetails(2212, "Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
-//        eventList.push(e);
-//        e = new EventDetails(2312, "Music stadium", "23/12/2021", "8:00-17:00", "Main Hall", "Please show ur id card to entry the hall", 25.00);
-//        eventList.push(e);
-    //memList.add(memberList.getEntry(1));
-    //  eventDList.push(eventList.getEntry(1));
-//        memberEvent.add(new Event("0001", "Confirmed", eventDList, memList));
-//        paymentList.add(new Payment(date, time, new Event("0001", "Confirmed", eventDList, memList)));
-//        paymentList.add(new Payment(date, time, new Event("0001", "Confirmed", eventDList, memList)));
-//    }
+
     public static void paymentMenu() {
         Scanner input = new Scanner(System.in);
         boolean exit = false;

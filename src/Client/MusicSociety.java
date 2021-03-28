@@ -9,6 +9,10 @@ import ADT.*;
 import Entity.*;
 import java.text.ParseException;
 import static Client.LoginAndUserMaintenance.firstPage;
+import  Client.EventMaintenance;
+import  Client.PaymentModule;
+import  Client.CoreBusinessModule;
+import static Client.EventMaintenance.menu;
 
 /**
  *
@@ -63,25 +67,25 @@ public class MusicSociety {
         EventDetails e = new EventDetails("Music festival", "22/12/2021", "20:00-22:00", "Live Stream", "Please enter room early 10 mminutes", 20.00);
         eventList.push(e);
 
-        e = new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
+        e = new EventDetails("Singing Lession", "19/11/2020", "20:00-21:00", "Google Meet Link(Code: Sing lesson)", "Lesson will conduct at monday and thursday end at 23/12/2020.(8 Lesson) ", 100.00);
         eventList.push(e);
 
-        e = new EventDetails("Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00);
+        e = new EventDetails("Advance Guitar Lesson", "24/11/2020", "18:00-19:00", "Google Meet Link(Code: Advanced Guitar lesson)", "Advance guitar lession teach by teacher Thiam every friday. Lesson end at 27/12/2020 (8 Lesson)", 100.00);
         eventList.push(e);
 
-        e = new EventDetails("Guitar Lesson", "24/11/2020", "19:30-20:30", "Google Meet Link", "Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)", 100.00);
+        e = new EventDetails("Guitar Lesson", "24/11/2020", "19:30-20:30", "Google Meet Link(Code: Guitar lesson)", "Beginner guitar lession teach by teacher Thiam every friday. Lesson end at 27/11/2020 (8 Lesson)", 100.00);
         eventList.push(e);
 
-        e = new EventDetails("Music Night", "22/01/2021", "17:00-22:00", "Google Meet Link", "Visual welcome party for the new member. Performance by Senior member, Free for all member ", 70.00);
+        e = new EventDetails("Music Night", "22/01/2021", "17:00-22:00", "Google Meet Link (Code: MusicNight)", "Visual welcome party for the new member. Performance by Senior member, Free for all member ", 70.00);
         eventList.push(e);
 
-        e = new EventDetails("Visual Music Fiesta", "23/04/2021", "19:00-21:00", "Google Meet Link", "Visual music concert for for all member. Guest performer： xxx ", 65.00);
+        e = new EventDetails("Visual Music Fiesta", "23/04/2021", "19:00-21:00", "Google Meet Link(Code:MusicFiesta)", "Visual music concert for for all member. Guest performer： xxx ", 65.00);
         eventList.push(e);
 
-        e = new EventDetails("Music Sharing", "26/03/2021", "20:00", "Google Meet Link", "Music sharing between member. Member require to prepare song and share the story about the song in the event ", 30.00);
+        e = new EventDetails("Music Sharing", "26/03/2021", "20:00", "Google Meet Link(Code:MusicSharing)", "Music sharing between member. Member require to prepare song and share the story about the song in the event ", 30.00);
         eventList.push(e);
 
-        e = new EventDetails("OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
+        e = new EventDetails("OO Night", "25/05/2021", "20:00-22:00", "Google Meet Link (code: OONight)", "Welcome party for new intake student. Only allow new intake student to join the party", 25.00);
         eventList.push(e);
 
         LinkListInterface<Member> memList = new LinkList();

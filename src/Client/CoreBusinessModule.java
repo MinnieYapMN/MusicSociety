@@ -9,6 +9,7 @@ import ADT.*;
 import static Client.MusicSociety.eventList;
 import static Client.MusicSociety.memberList;
 import static Client.EventMaintenance.menu;
+import Client.EventMaintenance;
 import static Client.LoginAndUserMaintenance.adminHomepage;
 import static Client.LoginAndUserMaintenance.registerNewMember;
 import static Client.MusicSociety.memberEvent;
@@ -60,7 +61,7 @@ public class CoreBusinessModule {
                         clearRegisList();
                         break;
                     case 6:
-                        menu();
+                        EventMaintenance.menu();
                         break;
                     case 0:
                         adminHomepage();
