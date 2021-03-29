@@ -340,7 +340,7 @@ public class PaymentModule {
                 input.nextLine();
 
                 for (int i = 1; i <= paymentList.getSize(); i++) {
-                    if (paymentDate.equals(paymentList.getEntry(i).getPaymentDate())) {
+                    if (paymentDate.equalsIgnoreCase(paymentList.getEntry(i).getPaymentDate())) {
                         System.out.println(paymentList.getEntry(i));
                         result = true;
                     }
@@ -377,7 +377,7 @@ public class PaymentModule {
                 input.nextLine();
 
                 for (int i = 1; i <= paymentList.getSize(); i++) {
-                    if (sStudID.equals(paymentList.getEntry(i).getEvent().getMember().getStudentID())) {
+                    if (sStudID.equalsIgnoreCase(paymentList.getEntry(i).getEvent().getMember().getStudentID())) {
                         System.out.println(paymentList.getEntry(i));
                         result = true;
                     }
